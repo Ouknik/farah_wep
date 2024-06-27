@@ -1,0 +1,198 @@
+var _instanceSweetalert = new sweetalert();
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+::setLocalJSForFooter{"js/reusableGeneratedQrCode.js"}endsetLocalJSForFooter
+
+
+
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+
+
+</div>
+<main class="m-b-50">
+    <div class="row">
+        <div class="col s12 l10 col-horizontal-center">
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="heading-main">{{TemplateFunctionTranslate "page_heading_manage_my_reusable"}}</h2>
+                </div>
+            </div>
+
+                     
+            <div class="row">
+                <div class="col s12">
+                    {{template "allFlashMessages" .}}
+                </div>
+            </div>
+            <div class="row m-t-5">
+                <div class="col s12 right-align">
+                    <a href="/reusables/add/" class="btn">{{TemplateFunctionTranslate "form_caption_reusablet_add"}}</a>
+                </div>
+            </div>
+            <div class="row m-t-30">
+
+                <div class="col s12">
+
+                    {{if .Reusables}}
+                  
+                        <section class="list usagetype-list">
+                            <!--div class="Content"-->
+                            <div class="row">
+                                <!--div class="col-sm"-->
+                                {{range $index, $item := .Reusables}}
+                                <div class="col s4">
+                                  <div class="card">
+                                     <div class="card-content flt-l">
+                                         <div class="">
+                                             <div class="card-header">
+                                                 <div class="card-image ">
+                                                    {{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.Reusables_reusable_image))}}    
+                                                    <img class="lightbox"
+                                                    width="100"
+                                                    height="170"
+                                                    data-large="{{$.EnvConfVars.reusablesImgCDNPath_large}}/{{index $item $.KeysForIteration.Reusables_reusable_image}}"
+                                                    data-thumbnail="{{$.EnvConfVars.reusablesImgCDNPath_thumbnails}}/{{index $item $.KeysForIteration.Reusables_reusable_image}}"
+                                                    data-name="{{index $item $.KeysForIteration.Reusables_reusable_image}}"
+                                                    data-type="reusable"
+                                                    src="{{$.EnvConfVars.reusablesImgCDNPath_thumbnails}}/{{index $item $.KeysForIteration.Reusables_reusable_image}}">
+                                                     <span class="card-title">{{index $item $.KeysForIteration.Reusables_name}}</span>
+                                                    {{else}}
+                                                    <div class="image-placeholder">
+                                                        <p class="grey-text text-lighten-2"><span class="material-icons">snippet_folder</span></p>
+                                                  
+                                                    </div>
+                                                                   
+                                                     {{end}}
+                                                   
+                                                </div>
+                                                
+                                               <div class="card-content">
+                                                {{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.Reusables_reusable_image))}} 
+                                                {{else}}
+                                                <h6>
+                                                    {{index $item $.KeysForIteration.Reusables_name}}
+                                                </h6>
+                                                {{end}}
+                                            </br>
+                                                <p>
+                                                    {{index $item $.KeysForIteration.Reusables_description}}
+                                                </p>
+                                                </div>
+                                                <div class="card-action">
+                                                    <div class="content">
+                                                        <p>
+                                                          Color:  {{index $item $.KeysForIteration.Reusables_color}}
+                                                        </p>
+                                                        <p>
+                                                          code:  {{index $item $.KeysForIteration.Reusables_reusable_code}}
+                                                        </p>
+                                                    <span class="">
+                                                        <div class="Content center" >
+                                                          
+                                                        <a href="/reusables/edit/{{index $item $.KeysForIteration.Reusables_id}}"
+                                                         id="" class="btn-icon-round tooltipped" data-position="top"
+                                                          data-tooltip="Reusable bearbeiten">
+                                                            <i class="material-icons">mode_edit_outline</i>
+                                                        </a>
+                                                   
+                                                        <a href="/reusables/delete/{{index $item $.KeysForIteration.Reusables_id}}" id=""
+                                                         class="btn-icon-round danger tooltipped" data-position="top" data-tooltip="Reusable löschen">
+                                                            <i class="material-icons">delete_outline</i>
+                                                        </a>
+
+                                                        
+                                                        <a 
+                                                        data-target="modal-reusabletoatalqrcode"
+                                                        onClick="triggerReusableGenerateQrCodes({{index $item $.KeysForIteration.Reusables_id}})"
+                                                        class="btn-icon-round tooltipped modal-trigger" 
+                                                      
+                                                        data-position="top"  
+                                                        data-tooltip="total qr code"
+                                                        >
+                                                            <i class="material-icons">auto_awesome</i>
+                                                        </a>
+                                                        
+
+                                                        <a href="/reusables/qrcode/manage/{{index $item $.KeysForIteration.Reusables_id}}" id=""
+                                                         class="btn-icon-round danger tooltipped" data-position="top" data-tooltip="Reusable löschen">
+                                                            <i class="material-icons">qr_code</i>
+                                                        </a>
+
+
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    </span>
+                                                </div>
+                                               </div>
+
+
+                                               
+                             
+                                       </div>
+                                 </div>
+                                    </div>  
+                                  </div>
+                                <!--/div-->
+                                <!--/div-->
+                          <!--/div-->
+                        </div>
+                                
+                            {{end}}
+                        </div>
+                        </section>
+                    {{else}}
+                        <div class="general-info-container">
+                            Noch kein Reusables angelegt.
+                        </div>
+                    {{end}}
+                <!--/div-->
+                </div>
+            </div>
+		</div>
+    </div>
+</main>
+
+<!-- Modal Structure -->
+<div id="modal-reusabletoatalqrcode" class="modal">
+    <div>
+        </br>
+        </br>
+        
+    <div>
+      
+    </div>
+    <div>
+    <div class="modal-content">
+        <input id="number_of_qr_codes" value="">
+      
+    </div>
+    <div class="content-center">
+   
+
+
+       
+        
+        <a  class="btn-cancel">{{TemplateFunctionTranslate "form_caption_cancel"}}</a>
+
+
+        <a class="btn" onclick="initAjaxReusableQrCode()">
+                {{TemplateFunctionTranslate "form_caption_submit"}}
+    </a>
+
+</div>
+  </div>
+{{end}}
+
+
+
+
+  
+
+
+
+
+  

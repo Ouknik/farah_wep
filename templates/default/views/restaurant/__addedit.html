@@ -1,0 +1,166 @@
+::import{"partials/top_nav", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized"}endimport
+
+::setLocalCSS{"css/dropzone-common.css"}endsetLocalCSS
+::setExternalCSS{""}endsetExternalCSS
+::setExternalJSForHeader{"https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"}endsetExternalJSForHeader
+::setLocalJSForFooter{"js/handle-file-upload-dropzone.js"}endsetLocalJSForFooter
+
+
+{{define "content"}}
+
+{{template "top-nav" .}}
+
+
+<script type="text/javascript">
+    const dropzoneFileUploadUrl = "/commonwebservices/uploadrestaurantimage/";
+        var dropzoneFileDeleteUrl = "/commonwebservices/deleterestaurantimage/";
+    const dropzoneFileUploadParamName = "Restaurant_image";
+    const acceptedFileTypes = "image/*"
+
+    {{if .RestaurantId}}
+        const formDataToSend = {'restaurantid' : {{.RestaurantId}}};
+        var dropzoneFileDeleteUrl = "/commonwebservices/deleterestaurantimage/{{.RestaurantId}}";
+    {{end}}
+
+</script>
+
+
+<main>
+    <div class="row">
+
+        <div class="col s12 m10 l8 xl6 col-horizontal-center m-b-50">
+            
+            <div class="row m-b-10">
+
+                <div class="col s12">
+                    <div class="left">
+                        <a href="/restaurant/manage" class="strong">
+                            <span class="material-icons small" style="vertical-align: middle;">arrow_back_ios</span>
+                            {{TemplateFunctionTranslate "form_caption_goto_restaurants"}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="heading-main">
+                        {{if .RestaurantId}}
+                            {{TemplateFunctionTranslate "page_heading_restaurant_edit"}}
+                        {{else}}
+                            {{TemplateFunctionTranslate "page_heading_restaurant_add"}}
+                        {{end}}
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    {{template "allFlashMessages" .}}
+                </div>
+            </div>
+                                
+            <div class="row">
+                <div class="col s12">
+                    <form enctype="multipart/form-data" action="" method="post" autocomplete="off" class="">
+                        {{/* Set restaurantid for restaurant image upload */}}
+                        {{if .RestaurantId}}
+                            <input type="hidden" name="restaurantid" value="{{.RestaurantId}}">
+                        {{end}}
+                        <section class="dropzone center-align m-b-30">
+                            <div class="file-upload-preview-box">
+                                <div class="file-upload-container dropzone-trigger">
+                                    <div id="previews"><div id="dropzone-template"></div></div>
+
+                                    <!-- file upload container --> 
+                                    <div class="dropzone-cotainer-file-upload">
+                                        {{if .RestaurantImage}}
+                                            <img
+                                                id="restaurant-img-{{.RestaurantId}}"
+                                                onerror="handleMissingImages(this)"
+                                                data-name="{{.RestaurantImage}}"
+                                                data-type="restaurant"
+                                                data-id="restaurant-img-{{.RestaurantId}}"
+                                                src="{{.RestaurantImageCDNPath}}//{{.RestaurantImage}}"
+                                            >
+                                        {{end}}
+                                    </div>
+                                    <!-- end file upload container --> 
+
+                                    <!-- background camera icon -->
+                                    <div class='dropzone-container-background {{if (.RestaurantImage)}}hide{{end}}'>
+                                        <i class="material-icons large dropzone-trigger">add_a_photo</i>
+                                        <p class="dropzone-trigger">Bild hier reinziehen oder klicken</p>
+                                    </div>
+                                    <!-- end background camera icon -->
+
+                                    <!-- dragover template -->
+                                    <div class="dropzone-container-dragover white-text hide">
+                                        <div class="dropzone-container-dragover-content">
+                                            <i class="material-icons medium">
+                                            arrow_downward
+                                            </i>
+                                        </div>
+                                    </div>
+                                    <!-- end dragover template -->
+
+
+                                    <div class="dropzone-container-error red-text hide">
+                                        <div class="dropzone-container-error-content">
+                                            <p><b>{{TemplateFunctionTranslate "error_generalError"}}</b></p>
+                                            <p>{{TemplateFunctionTranslateFormat "form_error_invalid_upload_file" .EnvConfVars.profilepic_upload_size}}</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- dropzone container -->
+                                    <div class="dropzone-container-dropper" id="fileUploadDropzone"></div>
+                                    <!-- end dropzone container -->
+
+                                </div>
+                            </div>
+                            
+                            <div class="center-align">
+                                <button id="trigger-delete-uploaded-image" class='btn-icon-round danger tooltipped {{if not (.RestaurantImage)}} hide {{end}}' data-position="top" data-tooltip='{{TemplateFunctionTranslate "message_deleteImage"}}'>
+                                    <i class="material-icons">delete_outline</i>
+                                </button>
+                            </div>
+                        </section>
+                        <section class="form-elements">
+                            
+                            {{.Form.Name}}
+                            {{.Form.Description}}
+                            <br>
+                            <h6 class="m-t-10 m-b-10">{{TemplateFunctionTranslate "heading_restaurant_address"}}</h6>
+                            <div>
+                                {{.Form.Address}}
+                                {{.Form.Address_additional}}
+                                {{.Form.Postal_code}}
+                                {{.Form.City}}
+                            </div>
+                            <div class="divider"></div>
+                            <div>
+                                <h4>Angaben zum Ansprechpartner</h4>
+                                {{.Form.Contact_person_name}}
+                                {{.Form.Contact_person_email}}
+                                {{.Form.Contact_person_telephone}}
+                                {{.Form.Contact_person_mobile}}
+                            </div>
+                        </section>
+                        <div class="m-t-20">
+                            <a href="/" class="btn-cancel">{{TemplateFunctionTranslate "form_caption_cancel"}}</a>
+                            <button class="btn" type="submit">
+                                {{if .RestaurantId}}
+                                    {{TemplateFunctionTranslate "form_caption_save"}}
+                                {{else}}
+                                    {{TemplateFunctionTranslate "form_caption_submit"}}
+                                {{end}}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{{end}}

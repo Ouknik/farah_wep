@@ -1,0 +1,256 @@
+@font-face {
+  font-family: "bold";
+  src: url("../fonts/Heebo/Heebo-Bold.ttf");
+  src: url("../fonts/Heebo/Heebo-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "regular";
+  src: url("../fonts/Poppins/Poppins-Regular.ttf");
+  src: url("../fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "light";
+  src: url("../fonts/Poppins/Poppins-Light.ttf");
+  src: url("../fonts/Poppins/Poppins-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 15px;
+  font-family: regular;
+  color: color("theme-text-colors", "default");
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: color("theme-grey", "background");
+  overflow-x: hidden;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: bold;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: color("theme-text-colors", "default");
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+h2.heading-main {
+  margin-bottom: 20px !important;
+  font-size: 1.625rem;
+  line-height: 1.625rem;
+}
+
+p.heading-main-slogan {
+  margin-top: -10px !important;
+  margin-bottom: 25px;
+  font-size: 80%;
+  text-align: center;
+}
+
+a:hover {
+  color: color("light-blue", "darken-2");
+}
+
+a:hover {
+  color: color("light-blue", "lighten-1");
+}
+
+i.material-icons {
+  vertical-align: top !important;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
+.heading-regular {
+  font-family: regular;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.small {
+  font-size: 90% !important;
+}
+
+.tiny-text {
+  font-size: 80% !important;
+}
+
+.sidenav-overlay {
+  background-color: rgba(14, 17, 94, 0.8) !important;
+}
+
+.modal .modal-footer {
+  text-align: center;
+}
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.datepicker-date-display {
+  background-color: rgba(14, 17, 94, 0.8) !important;
+}
+
+.datepicker-controls .select-month input, .datepicker-controls .select-year input {
+  border: none !important;
+}
+
+.datepicker-controls .select-year input {
+  width: 50px;
+}
+
+.datepicker-controls .select-month input {
+  width: 150px;
+}
+
+.datepicker-day-button {
+  color: #0e115e;
+}
+
+.is-today button {
+  border-radius: 5px;
+  background-color: rgba(14, 17, 94, 0.4) !important;
+  color: #fff;
+}
+
+button.datepicker-cancel {
+  color: color("theme-base-colors", "red") !important;
+}
+
+button.datepicker-done {
+  color: color("theme-base-colors", "blue") !important;
+}
+
+.is-selected button {
+  border-radius: 5px;
+  background-color: rgba(14, 17, 94, 0.9) !important;
+  color: #fff;
+}
+
+.dropzone {
+  border-radius: 5px;
+  border: 2px dashed;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: middle;
+  color: #bdbdbd;
+  transition-property: border-color, color;
+  transition-duration: 0.5s;
+}
+
+.dropzone:hover {
+  border: 2px dashed;
+  color: #42A5F5;
+}
+
+.file-upload-container {
+  position: relative;
+}
+
+.dropzone-container-background {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.dropzone-cotainer-file-upload {
+  min-height: 200px;
+  width: 100%;
+}
+
+.dropzone-cotainer-file-upload img {
+  width: 98%;
+  height: 350px;
+  object-fit: cover;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.trigger-delete-uploaded-image:hover {
+  color: #E57373 !important;
+  background-color: #f5f5f5 !important;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.slide-down {
+  /* This section calls the slideInFromTop animation we defined above */
+  animation: 0.4s ease-out 0s 1 slideInFromTop;
+}
+
+.dropzone-container-dropper,
+.dropzone-container-dragover,
+.dropzone-container-error {
+  position: absolute;
+  top: 0;
+  height: 200px;
+  width: 100%;
+  display: table;
+}
+
+.dropzone-container-dragover {
+  background-color: #42A5F5;
+  opacity: 0.9;
+}
+
+.dropzone-container-dragover-content,
+.dropzone-container-error-content {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.dropzone-container-error-content {
+  background-color: white;
+}
+.background-g{
+  
+  background: linear-gradient(180deg, #ed5a91 50%, #ffffff 50% );
+}
+
+
+
+
+
+/*# sourceMappingURL=dropzone-common.css.map */

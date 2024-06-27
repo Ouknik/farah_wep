@@ -1,0 +1,89 @@
+var _instanceSweetalert = new sweetalert();
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+::setLocalJSForFooter{"js/userDelevery.js"}endsetLocalJSForFooter
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+<main class="m-b-50">
+  <div class="content-wrapper-before weusable-pink"></div>
+    <div class="row">
+        <div class="col s12 l10 col-horizontal-center">
+
+            <div class="row">
+              <div class="col s6">
+                <h2 class="heading-main left-align mt-5">{{TemplateFunctionTranslate "page_heading_manage_user_delevery"}}</h2>
+              </div>
+              <div class="col s6 right-align mb-5">
+                <a href="/user/delevery/add" class="btn">{{TemplateFunctionTranslate "form_caption_user_delevery_add"}}</a>
+              </div>
+            </div>
+            <div class="row m-t-30">
+
+                <div class="col s12">
+
+                  <div class="container-table-bg">   
+                    
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>{{TemplateFunctionTranslate "form_label_first_name"}}</th>
+                              <th>{{TemplateFunctionTranslate "form_label_last_name"}}</th>
+                              <th>{{TemplateFunctionTranslate "form_label_mobile_number"}} </th>
+
+                          </tr>
+                        </thead>
+                        {{range $index, $item := .UserDelevery}}
+                        <tr>
+                          <td> {{index $item $.KeysForIteration.UserDelevery_first_name}}</td>
+                          <td>{{index $item $.KeysForIteration.UserDelevery_last_name}}</td>
+                          <td>{{index $item $.KeysForIteration.UserDelevery_mobile_number}}</td>
+                          <td class="right-align">
+                              <div class="m-r-20">
+                            {{if eq  (index $item $.KeysForIteration.UserDelevery_is_deleted) "0"}} 
+                           
+                              <a   onclick="deleteUserDelevery({{index $item $.KeysForIteration.UserDelevery_id}})"
+                              class="btn-icon-round danger tooltipped" data-position="top" data-tooltip="{{TemplateFunctionTranslate "tooltipp_reusable_delete"}}">
+                              <i  class="material-icons">delete</i>
+                            </a>
+                           
+                           
+                            {{else}}
+                           
+                              <a  
+                              class="btn-icon-round grey lighten-4 text-grey text-lighten-1 tooltipped" 
+                              data-position="top" 
+                              data-tooltip= "{{TemplateFunctionTranslateFormat "tooltipp_userDeliveryagen_delete_by" (index $item.DeleteByUser)}} {{TemplateFunctionTranslateFormat "tooltipp_userDeliveryagen_on" (TemplateFunctionLocalizeDateTime (index $item $.KeysForIteration.UserDelevery_deleted_on))}}"
+                              
+                              >
+                              <i  class="material-icons">delete</i>
+                            </a>
+                           
+                            {{end}}
+                             
+
+                            <a href="/user/delevery/edit/{{index $item $.KeysForIteration.UserDelevery_id}}"
+                              id="" class="btn-icon-round  tooltipped" data-position="top"
+                              data-tooltip="{{TemplateFunctionTranslate "tooltipp_userDeliveryagen_Edit"}}">
+                              <i class="material-icons">mode_edit_outline</i>
+                            </a>
+                           </div>
+                       
+                          </td>
+
+                        </tr>
+                        {{end}}
+
+
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+            </div>
+		</div>
+    </div>
+</main>
+{{end}}
+
+

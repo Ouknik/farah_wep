@@ -1,0 +1,9 @@
+{{define "flashMessageUncategorized"}}
+
+	{{if .FlashMessages.Uncategorized}}
+	<div class="blue lighten-4 blue-text text-darken-3 p-10 m-10 border">
+		{{TemplateFunctionTranslate .FlashMessages.Uncategorized}}
+	</div>
+	{{end}}
+
+{{end}}

@@ -1,0 +1,51 @@
+
+$theme-base-colors: (
+	"red": 												#E8005A,
+	"red-dark":											#B93729,
+	"blue": 											#58a3de,
+	"indigo":											#BC3AF2,
+	"pink":												#ED5A91,
+	"green":											#23869d
+);
+
+$theme-text-colors: (
+	"default": 											#333333,
+	"light": 											#bdbdbd,
+	"dark": 											#001022,
+	"whitish":											#f8f7fa,
+	"grey":												#676D80
+);
+
+$theme-link-colors: (
+	"base": 											#344563,
+	"hover": 											#ED5A91,
+	"topnav-links":										#6f7287,
+	"topnav-links-hover":								#ED5A91,
+	"topnav-links-hover-background":					red
+);
+
+$theme-input-colors: (
+	"border": 											#e0e0e0,
+	"border-hover": 									#bdbdbd,
+	"border-focus":										#232882,
+	"helper-text": 										#bdbdbd,
+	"label": 											#525252,
+	"label-hover": 										#757575,
+	"label-focus":										#232882,
+	"button-background":								#E8005A,
+	"button-hover-background":							#303030
+
+);
+
+$theme-grey: (
+	"base": 											#9e9e9e,
+	"light": 											#e0e0e0,
+	"dark": 											#001022,
+	"background":										#fafbfc,
+	"border":											#dddddd
+);
+
+$theme-list-colors: (
+	"background":										#f4f5f7,
+	"image-placeholder":								#ebecf0
+);

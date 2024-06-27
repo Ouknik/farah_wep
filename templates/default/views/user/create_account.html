@@ -1,0 +1,58 @@
+::import{"partials/top_nav", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized"}endimport
+::setLocalJSForFooter{"js/show-hide-password.js"}endsetLocalJSForFooter
+
+{{define "content"}}
+
+<main>
+	<div class="row m-t-100 m-b-100" id="">
+		<div class="col s12 m8 l4 col-horizontal-center">
+			<div class="form-register">
+
+
+            	<div class="row">
+            		<div class="col s12 center">
+                        {{template "logo-header" .}}
+                    </div>
+                </div>                
+
+	        	<div class="row">
+	        		<div class="col s12">
+						<h2 class="heading-main m-0 center">{{TemplateFunctionTranslate "welcome"}}</h2>
+						<p class="m-t-0 heading-main-slogan">PrimePort Verwaltungsbereich</p>
+					</div>
+				</div>
+	            
+	            <form enctype="multipart/form-data" action="" method="post" autocomplete="off" class="">
+	            	
+	            	
+	            	<div class="row">
+	            		<div class="col s12">
+	            			{{.Form.first_name}}
+	            		</div>
+	            	</div>
+	            	<div class="row">
+	            		<div class="col s12">
+	            			{{.Form.last_name}}
+	            		</div>
+	            	</div>
+	            	
+	            	
+	            	<div class="row m-t-30">
+	            		<div class="col s12 center">
+	                		<button
+                             class="btn-register" type="submit">
+                             {{TemplateFunctionTranslate "form_caption_create_account"}}
+                            </button>
+	            		</div>
+	                </div>
+
+	            </form>
+	            <div class="small m-t-10 center">
+	               
+	            </div>
+			</div>
+	        
+		</div>
+	</div>
+</main>
+{{end}}

@@ -1,0 +1,273 @@
+var _instanceSweetalert = new sweetalert();
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+::setLocalJSForFooter{"js/orderdetails.js"}endsetLocalJSForFooter
+
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+
+<main class="m-b-50">
+  <div class="content-wrapper-before weusable-pink"></div>
+    <div class="row">
+          <div class="col s12 l10 col-horizontal-center">
+              <div class="row">
+                  <div class="col s12">
+                      <h2 class="heading-main">{{TemplateFunctionTranslate "page_heading_manage_sales_overview"}}</h2>
+                  </div>
+          </div>  
+          <div class="row m-t-5">
+              <div class="col s12 right-align"> 
+                  <div class="container-table-bg"> 
+                    <!-- Add a button to show the calendar -->
+                    <!--a 
+                    id="show-date-calendar" 
+                    class="m-l-10 m-r-10 btn-icon-round tooltipped" data-position="top"   
+                    data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_FilterByDate"}}"
+                    > <i class="material-icons">date_range</i></a>
+                    <a id="date-begin-button" class="m-l-10 m-r-10 btn-icon-round tooltipped" data-position="top"  data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_FilterBitwinTowDate"}}"><i class="material-icons">today</i></a>
+                    <a id="statue-button" class="m-l-10 m-r-10 btn-icon-round tooltipped" data-position="top"  data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_FilterByStartue"}}"><i class="material-icons" >done_all</i></a>
+
+                    <input type="date" id="date-calendar" style="display: none;" > 
+
+                      <input type="date" id="date-begin-calendar" style="display: none;" >
+                      <input type="date" id="date-end-calendar" style="display: none;" >
+                      <button id="filter"  style="display: none;">Filter</button>
+
+
+                      <input type="text" id="statue-input" style="display: none;">
+                      <div id="statue-input" style="display: none;">
+                        <button class="icon-button m-t-20 m-l-10 m-r-10" data-value="0">Deleted</button>
+                        <button class="icon-button m-t-20 m-l-10 m-r-10" data-value="2">Awaiting</button>
+                        <button class="icon-button m-t-20 m-l-10 m-r-10" data-value="1">Delivered</button>
+                      </div-->
+
+                      <div class="row">
+                        <div id="showFilter" class="col s12" style="display: none;">
+                          
+                          <div class="container-Filter-view right-align" >
+                          <div class="row ">
+                            <div class="col s10">
+                              <div class="">
+                                <div class="col s0">
+                                  <p id="dateFilter"></p>
+                                </div>
+                                <div class="">
+                                  <a onclick="clearFilter()"><i class="material-icons">clear</i></a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                          
+                        </div>
+                      
+                        <div class="col s12">
+                          <a class="waves-effect waves-light modal-trigger m-l-10 m-r-10 tooltipped" href="#modalSearchFormDate" data-position="top" data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_FilterBitwinTowDate"}}">
+                            <i class="material-icons">today</i>
+                          </a>
+                          
+                          <a class="waves-effect waves-light modal-trigger m-l-10 m-r-10 tooltipped" href="#modalSearchByDate" data-position="top" data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_FilterByDate"}}">
+                            <i class="material-icons">date_range</i>
+                          </a>
+                        </div>
+                      </div>
+                           
+                   
+                  <div class="row m-t-30">
+
+                      <div class="col s12">
+   
+                          <!-- Display the orders table -->
+                    <table id="ordersTable">
+                      <thead>
+                        <tr>
+                          <th>{{TemplateFunctionTranslate "form_label_mobile_number"}}</th>
+                          <th>{{TemplateFunctionTranslate "label_order_username"}}</th>
+                          <th>{{TemplateFunctionTranslate "message_crdate"}}</th>
+                          
+                          <th>{{TemplateFunctionTranslate "label_order_amount"}}</th>
+                          <th class="center">{{TemplateFunctionTranslate "label_order_status"}}</th>
+                          <th style="display: none;"></th>
+                          <th class="right-align"></th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                     
+
+                        {{range $index, $item := .Order}}
+                        <tr>
+                          <td>
+                            {{if TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.Order_mobile_phone)}}
+                                {{index $item $.KeysForIteration.User_mobile_number}}
+                            {{else}}
+                               {{index $item $.KeysForIteration.Order_mobile_phone}}
+                               {{end}}
+
+                          </td>
+                          <td>{{index $item $.KeysForIteration.User_first_name}} {{index $item $.KeysForIteration.User_last_name}}</td>
+                          <td>{{TemplateFunctionLocalizeDateTime (index $item $.KeysForIteration.Order_crdate)}}</td>
+                         
+                          <td>{{index $item $.KeysForIteration.Order_amount}} €</td>
+
+                          <td >
+                            <div class="center m-t-5">
+                              {{if eq (index $item $.KeysForIteration.Order_status) "1"}}
+                              <!-- progress-->
+                                <a 
+                                class="btn-icon-round tooltipped green" 
+                                data-position="top" 
+                                data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_progress"}}">
+                                  <i class="material-icons">hourglass_empty</i>
+                                </a>
+                              <!-- deleverid-->
+                              <a onclick="changeStatus(2, {{index $item $.KeysForIteration.Order_id}})" 
+                              class="btn-icon-round tooltipped" data-position="top" 
+                              data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_delivered"}}">
+                                <i class="material-icons">check</i>
+
+                              </a>
+                              <!-- Delete-->
+                                <a onclick="changeStatus(0, {{index $item $.KeysForIteration.Order_id}})" 
+                                class="btn-icon-round tooltipped" data-position="top" 
+                                data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_delete"}}">
+                                  <i class="material-icons">delete_outline</i>
+
+                                </a>
+
+
+
+
+
+
+
+
+                               {{else if eq (index $item $.KeysForIteration.Order_status) "0"}}
+
+                                <!-- progress-->
+                                <a onclick="changeStatus(1, {{index $item $.KeysForIteration.Order_id}})" class="btn-icon-round tooltipped" data-position="top" 
+                                data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_progress"}}">
+                                  <i class="material-icons">hourglass_empty</i>
+
+                                </a>
+                                <!-- deleverid-->
+                                <a onclick="changeStatus(2, {{index $item $.KeysForIteration.Order_id}})" class="btn-icon-round tooltipped" data-position="top" 
+                                data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_delivered"}}">
+                                  <i class="material-icons">check</i>
+
+                                </a>
+                                <!-- Delete-->
+                                <a 
+                               
+                                class="btn-icon-round tooltipped green" 
+                                data-position="top" 
+                                data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_delete"}}"
+                                >
+                                  <i class="material-icons">delete_outline</i>
+
+                                </a>
+
+
+
+
+
+
+
+                                {{else}}
+
+                                <!-- progress-->
+                                <a onclick="changeStatus(1, {{index $item $.KeysForIteration.Order_id}})" class="btn-icon-round tooltipped" data-position="top" 
+                                data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_progress"}}">
+                                  <i class="material-icons">hourglass_empty</i>
+
+                                </a>
+                              <!-- deleverid-->
+                                <a 
+                                
+                                class="btn-icon-round tooltipped green" 
+                                data-position="top" 
+                                data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_delivered"}}"
+                                >
+                                  <i class="material-icons">check</i>
+
+                                </a>
+                              <!-- Delete-->
+                                <a onclick="changeStatus(0, {{index $item $.KeysForIteration.Order_id}})" class="btn-icon-round tooltipped" data-position="top" 
+                                data-tooltip="{{TemplateFunctionTranslate "tooltipp_salesovrview_delete"}}">
+                                  <i class="material-icons">delete_outline</i>
+
+                                </a>
+                                {{end}}
+
+
+                            
+                            </div>
+                            
+                          </td>
+
+                          <td style="display: none;">
+                            {{index $item $.KeysForIteration.Order_status}}
+                          </td>
+                          <td>
+                            <a href="/restaurant/salesoverview/order/{{index $item $.KeysForIteration.Order_id}}" class="btn-icon-round tooltipped" data-position="top" data-tooltip="Restaurant bearbeiten">
+                              <i class="material-icons">info_outline</i>
+                            </a>
+                          </td>
+                        </tr>
+                        {{end}}
+                      
+
+
+
+                      </tbody>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+
+             </div>
+          </div>
+        </div>
+    </div>
+</main>
+
+
+<!-- Modal Structure searsh by tow date -->
+ <div id="modalSearchFormDate" class="modal">
+  <div class="modal-content">
+    <p>{{TemplateFunctionTranslate "lable_from_from_date"}}</p>
+    <input type="date" id="date-begin-calendar"  >
+    <p>{{TemplateFunctionTranslate "lable_from_to_date"}}</p>
+    <input type="date" id="date-end-calendar" >
+    <br/>
+    
+  </div>
+  <div class="modal-footer">
+  <a  class="btn modal-close" onclick="SerchByTwoDate()">{{TemplateFunctionTranslate "form_caption_filter"}}</a>
+   
+  </div>
+</div>
+
+
+<!-- Modal Structure searsh by date -->
+<div id="modalSearchByDate" class="modal">
+  <div class="modal-content">
+    <p>{{TemplateFunctionTranslate "lable_from_select_date"}}</p>
+    <input type="date" id="date-calendar"> 
+    
+    
+  </div>
+  <div class="modal-footer">
+  <a  class="btn modal-close" onclick="SerchByDate()">{{TemplateFunctionTranslate "form_caption_filter"}}</a>
+   
+  </div>
+</div>
+
+
+{{end}}
+
+
+

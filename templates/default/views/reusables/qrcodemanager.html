@@ -1,0 +1,141 @@
+var _instanceSweetalert = new sweetalert();
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+::setLocalJSForFooter{"js/reusableqrcode.js"}endsetLocalJSForFooter
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+
+
+<main class="m-b-50">
+
+ 
+
+  {{range $index, $item := .ReusablesQrCode}}
+      
+      {{if eq $index 0}}
+      
+
+  <div class="col s12 m7">
+   
+    <div class="card horizontal">
+      <div class="card-image">
+        {{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.Reusable_reusable_image))}}
+     
+        <img class="lightbox"
+          width="100"
+          height="100"
+          data-large="{{$.EnvConfVars.reusablesImgCDNPath_large}}/{{index $item $.KeysForIteration.Reusable_reusable_image}}"
+          data-thumbnail="{{$.EnvConfVars.reusablesImgCDNPath_thumbnails}}/{{index $item $.KeysForIteration.Reusable_reusable_image}}"
+          data-name="{{index $item $.KeysForIteration.Reusable_reusable_image}}"
+          data-type="reusable"
+          src="{{$.EnvConfVars.reusablesImgCDNPath_thumbnails}}/{{index $item $.KeysForIteration.Reusable_reusable_image}}">
+     
+
+   {{else}}
+
+   {{end}}
+  
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>
+           Reusable Name :  {{index $item $.KeysForIteration.Reusable_name}}
+          </p>
+
+          <p>
+           Number Qr code :  {{$.TotalQrCode}}
+          </p>
+
+          <p>
+           Number lost : {{$.TotalQrCodeLost}}
+          </p>
+
+          <p>
+            Number delete : {{$.TotalQrCodeDelete}}
+           </p>
+           <p>
+            Date Crdate : {{index $item $.KeysForIteration.Reusable_crdate}}
+           </p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+{{end}}
+{{end}}
+
+
+  
+    
+
+            <div class="row m-t-30">
+
+                <div class="col s12">
+
+                    
+                  
+                    <table>
+                        <thead>
+                          <tr>
+                             
+                              <th>Reusable QrCode</th>
+                              
+                              <th>Change Statue</th>
+                          </tr>
+                        </thead>
+                        {{range $index, $item := .ReusablesQrCode}}
+                       <tr>
+                        
+                       
+                          <td> 
+                            <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{index $item $.KeysForIteration.Reusablesqrc_id}}" alt="QR Code">
+                          </td>
+                            
+
+                          <td>
+                            
+                           
+                           {{if eq  (index $item $.KeysForIteration.Reusablesqrc_is_deleted) "1"}}
+                           Is Deleted
+                           {{else}}
+                           <span class="">
+                            <div class="Content center" >
+                                  <a  href="/reusables/qrcode/delete/{{index $item $.KeysForIteration.Reusablesqrc_id}}"
+                                class="btn-icon-round danger tooltipped" data-position="top" data-tooltip="Reusable löschen">
+                            <i  class="material-icons">delete</i>
+                            </a>
+                            </div>
+                          </span>
+                           {{end}}
+                          
+                          </td>
+                          
+                          <td>
+                            <span class="">
+                              <div class="Content center" >  
+                               <a href="/reusables/qrcode/history/{{index $item $.KeysForIteration.Reusablesqrc_id}}"
+                               class="btn-icon-round danger tooltipped" data-position="top" data-tooltip="Reusable löschen">
+                                  <i class="material-icons">history</i>
+                               </a>  
+                              </div>
+                              <div class="clearfix"></div>
+                              </span>
+                          </td>
+                        </tr>
+                        {{end}}
+                        </tbody>
+                      </table>
+                  
+                </div>
+            </div>
+		</div>
+    </div>
+</main>
+{{end}}
+
+
+
+

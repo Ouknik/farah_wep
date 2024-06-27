@@ -1,0 +1,9 @@
+{{define "flashMessageSuccess"}}
+
+	{{if .FlashMessages.Success}}
+	<div class="green lighten-4 green-text text-darken-2 p-10 m-10 border">
+		{{TemplateFunctionTranslate .FlashMessages.Success}}
+	</div>
+	{{end}}
+
+{{end}}

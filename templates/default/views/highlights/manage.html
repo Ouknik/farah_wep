@@ -1,0 +1,102 @@
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+
+::setLocalJSForFooter{"js/lightbox.js"}endsetLocalJSForFooter
+
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+<main class="m-b-50">
+    <div class="row">
+        <div class="col s12 l10 col-horizontal-center">
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="heading-main">{{TemplateFunctionTranslate "page_heading_manage_highlights"}}</h2>
+                </div>
+            </div>
+
+                     
+            <div class="row">
+                <div class="col s12">
+                    {{template "allFlashMessages" .}}
+                </div>
+            </div>
+            <div class="row m-t-5">
+                <div class="col s12 right-align">
+                    <a href="/highlights/add" class="btn">{{TemplateFunctionTranslate "form_caption_highlight_add"}}</a>
+                </div>
+            </div>
+
+            <div class="row m-t-30">
+
+                <div class="col s12">
+          
+                    
+                    {{if .Highlights}}
+                        <section class="list usagetype-list">
+                            {{range $index, $item := .Highlights}}
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="card">
+                                            <div class="card-content">
+                                                <div class="">
+                                                    <div class="card-header">
+                                                        <h6 class="">
+                                                            {{index $item $.KeysForIteration.Highlight_title}}
+                                                        </h6> 
+                                                        <p class="tiny-text m-t-5 grey_-text">
+                                                            {{TemplateFunctionTranslate "message_created_by"}} {{index $item $.KeysForIteration.User_first_name}} {{index $item $.KeysForIteration.User_last_name}}
+
+                                                            | Erstellungsdatum: {{TemplateFunctionLocalizeDate (index $item $.KeysForIteration.Highlight_crdate)}}
+                                                        </p> 
+                                                    </div>
+
+                                                    <div class="left card-content-description">
+                                                        
+                                                        <div class="m-t-10 m-b-10">
+                                                            <h6 class="m-b-5">
+                                                                {{TemplateFunctionTranslate "form_label_highlight_description"}} 
+                                                            </h6>
+                                                            <div>
+                                                                {{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.Highlight_description))}}
+                                                                    <p id="desc-shorttext-{{index $item $.KeysForIteration.Highlight_id}}" class="trigger-fulltext toggle-text" data-idprefix="desc" data-id="{{index $item $.KeysForIteration.Highlight_id}}">{{TemplateFunctionSubStringWhitespaceSafe (index $item $.KeysForIteration.Highlight_description) 0 500 "..."}}</p>
+                                                                    <p id="desc-fulltext-{{index $item $.KeysForIteration.Highlight_id}}" class="hide trigger-shorttext toggle-text" data-idprefix="desc" data-id="{{index $item $.KeysForIteration.Highlight_id}}">{{index $item $.KeysForIteration.Highlight_description}}</p>
+                                                                {{else}}
+                                                                    <p>Keine Angaben</p>
+                                                                {{end}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content-menu">
+                                                    <div>
+                                                        <span class="">
+                                                            <a href="/highlights/edit/{{index $item $.KeysForIteration.Highlight_id}}" id="trigger-delete-highlight" class="btn-icon-round tooltipped" data-position="top" data-tooltip="Highlight bearbeiten">
+                                                                <i class="material-icons">mode_edit_outline</i>
+                                                            </a>
+                                                            <a href="/highlights/delete/{{index $item $.KeysForIteration.Highlight_id}}" id="trigger-delete-highlight" class="btn-icon-round danger tooltipped" data-position="top" data-tooltip="Highlight löschen">
+                                                                <i class="material-icons">delete_outline</i>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{end}}
+                        </section>
+                    {{else}}
+                        <div class="general-info-container">
+                            Noch kein Highlight angelegt.
+                        </div>
+                    {{end}}
+                </div>
+            </div>
+		</div>
+    </div>
+</main>
+{{end}}

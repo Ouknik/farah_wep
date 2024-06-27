@@ -1,0 +1,213 @@
+::import{"partials/top_nav", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized"}endimport
+
+
+::setLocalCSS{"css/dropzone-common.css"}endsetLocalCSS
+::setExternalCSS{""}endsetExternalCSS
+::setExternalJSForHeader{"https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"}endsetExternalJSForHeader
+::setLocalJSForFooter{"js/handle-file-upload-dropzone.js","js/menuItemExtars.js"}endsetLocalJSForFooter
+
+{{define "content"}}
+
+{{template "top-nav" .}}
+<script type="text/javascript">
+    var typeOfExtrasMenus = 0 //0: free ; 1 : paied
+    const dropzoneFileUploadUrl = "/commonwebservices/uploadmenuitemimage/";
+    var dropzoneFileDeleteUrl = "/commonwebservices/deletemenuitemimage/";
+    const dropzoneFileUploadParamName = "MenuItem_image";
+    const acceptedFileTypes = "image/*"
+    var menuItemId  = null
+
+    {{if .MenuitemId}}
+        const formDataToSend = {'menuitemid' : {{.MenuitemId}}};
+        dropzoneFileDeleteUrl = "/commonwebservices/deletemenuitemimage/{{.MenuitemId}}";
+         menuItemId ={{.MenuitemId}}
+
+    {{end}}
+
+
+</script>
+
+<div style="display:none ;z-index: 10000;width: 600px;margin: 0 auto !important;" id="errorr-message" class="red lighten-3 white-text text-darken-3 p-10 m-10 border">
+   
+</div>
+<div style="margin-top:20px">
+    
+            <main>
+                <div class="row">
+                    <div class="col s2"></div>
+                    <div class="col s6 m10 l8 xl6  m-b-50">
+                        
+                        <div class="row m-b-10">
+            
+                            <div class="col s12">
+                                <div class="left">
+                                    <a href="/menuitem/manage" class="strong">
+                                        <span class="material-icons small" style="vertical-align: middle;">arrow_back_ios   </span>
+                                        {{TemplateFunctionTranslate "form_caption_goto_restaurants"}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="row">
+                            <div class="col s12">
+                                <h2 class="heading-main">
+                                   
+                                    {{if .MenuitemId}}
+                                        {{TemplateFunctionTranslate "page_heading_menuitem_edit"}}
+                                    {{else}}
+                                        {{TemplateFunctionTranslate "page_heading_menuitem_add"}}
+                                    {{end}}
+                                </h2>
+                            </div>
+                        </div>
+            
+                        <div class="row">
+                            <div class="col s12">
+                                {{template "allFlashMessages" .}}
+                            </div>
+                        </div>
+                                            
+                        <div class="row">
+                            <div class="col s12">
+                                <form enctype="multipart/form-data" action="" method="post" autocomplete="off" class="">
+                                    
+                                    {{/* Set MenuitemId for MenuitemId image upload */}}
+                                    {{if .MenuitemId}}
+                                        <input type="hidden" name="menuitemid" value="{{.MenuitemId}}">
+                                    {{end}}
+                                    <section class="dropzone center-align m-b-30">
+                                        <div class="file-upload-preview-box">
+                                            <div class="file-upload-container dropzone-trigger">
+                                                <div id="previews"><div id="dropzone-template"></div></div>
+            
+                                                <!-- file upload container --> 
+                                                <div class="dropzone-cotainer-file-upload">
+                                                    {{if .MenuItemImage}}
+                                                        <img
+                                                            id="menuitem-img-{{.MenuitemId}}"
+                                                            onerror="handleMissingImages(this)"
+                                                            data-name="{{.MenuItemImage}}"
+                                                            data-type="menuitem"
+                                                            data-id="menuitem-img-{{.MenuitemId}}"
+                                                            src="{{.MenuItemImageCDNPath}}//{{.MenuItemImage}}"
+                                                        >
+                                                    {{end}}
+                                                </div>
+                                                <!-- end file upload container --> 
+            
+                                                <!-- background camera icon -->
+                                                <div class='dropzone-container-background {{if (.MenuItemImage)}}hide{{end}}'>
+                                                    <i class="material-icons large dropzone-trigger">add_a_photo</i>
+                                                    <p class="dropzone-trigger">Bild hier reinziehen oder klicken</p>
+                                                </div>
+                                                <!-- end background camera icon -->
+            
+                                                <!-- dragover template -->
+                                                <div class="dropzone-container-dragover white-text hide">
+                                                    <div class="dropzone-container-dragover-content">
+                                                        <i class="material-icons medium">
+                                                        arrow_downward
+                                                        </i>
+                                                    </div>
+                                                </div>
+                                                <!-- end dragover template -->
+            
+            
+                                                <div class="dropzone-container-error red-text hide">
+                                                    <div class="dropzone-container-error-content">
+                                                        <p><b>{{TemplateFunctionTranslate "error_generalError"}}</b></p>
+                                                        <p>{{TemplateFunctionTranslateFormat "form_error_invalid_upload_file" .EnvConfVars.profilepic_upload_size}}</p>
+                                                    </div>
+                                                </div>
+            
+                                                <!-- dropzone container -->
+                                                <div class="dropzone-container-dropper" id="fileUploadDropzone"></div>
+                                                <!-- end dropzone container -->
+            
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="center-align">
+                                            <button id="trigger-delete-uploaded-image" class='btn-icon-round danger tooltipped {{if not (.MenuItemImage)}} hide {{end}}' data-position="top" data-tooltip='{{TemplateFunctionTranslate "message_deleteImage"}}'>
+                                                <i class="material-icons">delete_outline</i>
+                                            </button>
+                                        </div>
+                                    </section>
+                                    <section class="form-elements">
+                                        
+                                        {{.Form.Name}}
+                                        {{.Form.Name_display}}
+                                        {{.Form.Price}}
+                                        {{.Form.Description_internal}}
+                                        {{.Form.Description}}
+                                        {{.Form.Is_regular_item}}
+                                        {{.Form.Is_active}}
+                                        
+                                        <br>
+                                        <h6 class="m-t-10">{{TemplateFunctionTranslate "heading_menuitem_categories"}}</h6>
+                                        <div class="tiny-text grey-text m-b-5">{{TemplateFunctionTranslate "message_menuitem_assign_categories"}}</div>
+                                        <div class="restaurant-categories-container">
+                                            {{.Form.Cat_id}}
+                                        </div>
+            
+                                    </section>
+                                    <div class="m-t-20">
+                                        <a href="/" class="btn-cancel">{{TemplateFunctionTranslate "form_caption_cancel"}}</a>
+                                        <button class="btn" type="submit">
+                                            {{if .MenuitemId}}
+                                                {{TemplateFunctionTranslate "form_caption_save"}}
+                                            {{else}}
+                                                {{TemplateFunctionTranslate "form_caption_submit"}}
+                                            {{end}}
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s2" style="padding-top:106px;padding-left:20px">
+                        <div>
+                            <h3>
+                                <b>verfügbare optional Produkte </b>
+                                <a data-target="modal-menuitemextras"  onclick="typeOfExtrasMenus = 0;" class="  waves-effect waves-light red modal-trigger" style=" background: transparent !important;margin-top: -8px;padding: 5px;"><i class="material-icons">add</i></a>
+                            </h3>
+                            <ul class="collection" id="free-extras">
+                                
+                               
+                            </ul>
+            
+                        </div>
+                        <div>
+                            <h3>
+                                <b>Extras gegen Aufpreis</b>
+                                <a data-target="modal-menuitemextras"  onclick="typeOfExtrasMenus = 1;" class="  waves-effect waves-light red modal-trigger" style=" background: transparent !important;margin-top: -8px;padding: 5px;"><i class="material-icons">add</i></a>
+            
+            
+                            </h3>
+                            <ul class="collection" id="paid-extras">
+                                
+                            </ul>
+            
+                        </div>
+                       
+                        
+                    </div>
+                </div>
+            </main>
+       
+</div>
+
+<!-- Modal Structure -->
+<div id="modal-menuitemextras" class="modal">
+    <div class="modal-content">
+      <input id="input-search" type="text" onkeyup="addToListExtras(this)" placeholder="taping something ..." />
+      <div id="resultat-search"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-close" >Close</button>
+    </div>
+  </div>
+
+
+{{end}}

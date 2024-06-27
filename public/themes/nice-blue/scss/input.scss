@@ -1,0 +1,302 @@
+input {
+  font-family: $font-primary;
+}
+
+.select-wrapper ul {
+	width: 100% !important;
+}
+
+input.select-dropdown {
+}
+
+.btn:focus, .btn-cancel:focus, .btn-small:focus, .btn-large:focus, .btn-register:focus, .btn-floating:focus {
+	background-color: color('theme-input-colors', 'button-background');
+}
+
+
+button:focus {
+	background-color: color('theme-input-colors', 'button-background');
+	color: #fff !important;
+}
+
+.input-field {
+	//padding-top: 2px !important;
+	padding-bottom: 15px !important;
+	//border-radius: 5px;
+ 	margin: 0 !important;
+}
+
+.input-field input {
+	border: 1px solid color('theme-input-colors', 'border') !important;
+	border-radius: 3px !important;
+	box-shadow: none !important;
+	padding-left: 5px !important;
+	padding-top: 5px !important;
+	padding-bottom: 0 !important;
+	margin: 0 !important;
+	box-sizing: border-box !important;
+	width: 100%;
+}
+
+.input-field textarea {
+	min-height: 200px;
+	border: 1px solid color('theme-input-colors', 'border') !important;
+	border-radius: 3px !important;
+	box-shadow: none !important;
+	padding-left: 5px !important;
+	padding-top: 20px !important;
+	padding-bottom: 0 !important;
+	margin: 0 !important;
+	box-sizing: border-box !important;
+	width: 100%;
+}
+
+.input-field input + label {
+	padding-left: 5px !important;
+	padding-top: 2px !important;
+	color: color('theme-input-colors', 'label') !important;
+
+}
+
+.input-field textarea + label {
+	padding-left: 5px !important;
+	color: color('theme-input-colors', 'label') !important;
+}
+
+// hook for label overlapping border
+// when input value is filled by default
+.input-field input:not([value=""]) + label {
+	font-size: 80% !important;
+	transform: translateY(0px) !important;
+}
+
+
+.input-field textarea:not(:empty) + label {
+	font-size: 80% !important;
+	transform: translateY(0px) !important;
+}
+
+
+/* label underline focus color */
+.input-field input:hover {
+	border: 1px solid color('theme-input-colors', 'border-hover') !important;
+}
+.input-field input:hover + label {
+	color: color('theme-input-colors', 'label-hover') !important;
+}
+
+.input-field input:focus {
+	// increase border with by 1 pixel to add a glow effect
+	border: 2px solid color('theme-input-colors', 'border-focus') !important;
+	// since border width was increased by a pixel
+	// take away 1 px from left and top padding 
+	padding-left: 4px !important;
+	padding-top: 4px !important;
+	outline: 0;
+}
+
+/* label focus color */
+.input-field input:focus + label {
+  color: color('theme-input-colors', 'label-focus') !important;
+	-webkit-transform: translateY(-500%);
+	-moz-transform: translateY(-500%);
+	-ms-transform: translateY(-500%);
+	-o-transform: translateY(-500%);
+	transform: translateY(-2px) !important;
+	font-size: 80% !important;
+	padding-top: 5px !important;
+}
+
+
+.input-field textarea:focus + label {
+
+  color: color('theme-input-colors', 'label-focus') !important;
+	-webkit-transform: translateY(-200%);
+	-moz-transform: translateY(-200%);
+	-ms-transform: translateY(-200%);
+	-o-transform: translateY(-200%);
+	transform: translateY(-2px) !important;
+	font-size: 80% !important;
+	padding-top: 5px !important;
+}
+
+
+[type="checkbox"].filled-in:not(:checked)+ span:not(.lever):after {
+	border-color: color('theme-input-colors', 'border') !important;
+}
+
+[type="checkbox"].filled-in:checked + span:not(.lever):after {
+	border-color: color('theme-input-colors', 'border-focus') !important;
+	background-color: color('theme-input-colors', 'border-focus') !important;
+}
+
+
+.btn-register, .btn {
+	text-transform: none;
+	background-color: color('theme-input-colors', 'button-background');
+	border-radius: $radius-default;
+	color: #fff;
+	//background-image: linear-gradient(to left top, #050953, #0e115e, #15186a, #1c2076, #232882);
+}
+
+.btn-register {
+	@extend .btn-large;
+}
+
+.btn {
+	@extend .btn;
+	font-size: 1.2rem;
+	font-family: bold;
+}
+
+.btn i {
+	vertical-align: middle !important;
+}
+
+
+.btn-register:hover, .btn:hover {
+	background-image:none;
+	background-color: color('theme-input-colors', 'button-hover-background');
+	color: #fff;
+}
+
+.btn-cancel {
+	@extend .btn;
+	//background-color: color('red', "lighten-1");
+	background-color: white;
+	border: 1px solid color('grey', "darken-4");
+	color: color('grey', "darken-4");
+	margin-right: 20px;
+}
+
+.btn-cancel:hover {
+	background-color: color('red', "darken-1");
+	border: 1px solid color('red', "darken-4");
+	color: white;
+}
+
+.btn-icon-round {
+	@extend .grey-text;
+	@extend .text-darken-1;
+	@extend .grey;
+	@extend .lighten-2;
+
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border:none;
+	transform: background;
+	cursor: pointer;
+	margin: 2px;
+	display: inline-block;
+}
+
+.btn-icon-round > i {
+	//transition: transform 0.8s;
+	//transform-style: preserve-3d;
+	vertical-align: middle;
+}
+
+// specifically add background
+// to hyperlinks
+a.btn-icon-round {
+	padding: 8px;
+	text-align: center;
+}
+
+.btn-icon-round:hover {
+	background: color("theme-input-colors", "button-background") !important;
+	color: #fff !important;
+	transition: all 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+
+.btn-icon-round.danger:hover {
+	background-color: color("red", "lighten-2") !important;
+	color: white !important;
+}
+
+.btn-icon-round.success:hover {
+	background-color: color("green", "lighten-2") !important;
+	color: white !important;
+}
+
+
+
+
+
+.swal-button.swal-button--confirm {
+	background-color: color('theme-input-colors', 'button-background');
+}
+
+.swal-button.swal-button--confirm:hover {
+	background-color: color('theme-input-colors', 'button-hover-background');
+}
+
+.helper-text {
+	//margin-bottom: 10px;
+	//background-color: linen;
+	margin: 2px 0 !important;
+	padding: 0 !important;
+	color: color('theme-input-colors', 'helper-text');
+}
+
+.helper-text:empty {
+    display: none;
+}
+
+
+// select option (fancy)
+.select-wrapper input {
+}
+
+.dropdown-content li > span {
+	color: color('theme-input-colors', 'label-hover')
+}
+.dropdown-content li > span:hover {
+	color: color('theme-input-colors', 'label-focus');
+}
+
+
+// range sliders
+.red-range input[type=range]::-webkit-slider-thumb {
+	background-color: color('theme-base-colors', 'red');
+}
+.red-range input[type=range]::-moz-range-thumb {
+	background-color: color('theme-base-colors', 'red');
+}
+.red-range input[type=range]::-ms-thumb {
+	background-color: color('theme-base-colors', 'red');
+}
+
+/***** These are to edit the thumb and the text inside the thumb *****/
+.red-range input[type=range] + .thumb {
+	background-color: color('blue', 'lighten-3');
+}
+.red-range input[type=range] + .thumb.active .value {
+	//background-color: color('blue', 'lighten-3');
+}
+
+
+
+
+.input-field > .cozy-fit {
+	min-height: 0 !important;
+	min-width: 0 !important;
+	height: 80px;
+}
+
+
+
+.restaurant-categories-container {
+	border-radius: $radius-default;
+	border: 1px solid color('theme-input-colors', 'border');
+	padding: 10px;
+}
+
+
+.restaurant-categories-container label {
+	color: color('theme-input-colors', 'label-hover');
+	display: inline-grid;
+	min-width: 200px;
+}

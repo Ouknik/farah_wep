@@ -1,0 +1,9 @@
+{{define "flashMessageWarning"}}
+
+	{{if .FlashMessages.Warning}}
+	<div class="yellow lighten-4 orange-text text-darken-2 p-10 m-10 border">
+		{{TemplateFunctionTranslate .FlashMessages.Warning}}
+	</div>
+	{{end}}
+
+{{end}}

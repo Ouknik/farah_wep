@@ -1,0 +1,35 @@
+{{define "pagination"}}
+
+	{{if .ItemsInList}}
+		<div class="col-md-4 offset-md-8">
+			<div class="pagination float-right m-b-20 mr-n1">
+				{{if ne .PaginationDetails.PagePrevious 0}}
+		            <a href="?{{TemplateFunctionEncodeToURL .PaginationDetails.SearchParamsAsUrlString}}&_p={{.PaginationDetails.PagePrevious}}" class="pager" data-toggle="tooltip" type="submit" data-placement="left" title="{{.PaginationDetails.PagePrevious}}">
+		                <i class="zmdi zmdi-chevron-left"></i>
+		            </a>
+		        {{else}}
+		        	<span class="pager-inactive">
+		                <i class="zmdi zmdi-chevron-left"></i>
+		        	</span>
+		        {{end}}
+		        <div class="pageInfo">&nbsp;{{.PaginationDetails.ItemFrom}} - {{.PaginationDetails.ItemUntil}}&nbsp;</div>
+
+		        {{if ne .PaginationDetails.PageNext 0}}
+		            <a href="?{{(TemplateFunctionEncodeToURL .PaginationDetails.SearchParamsAsUrlString)}}&_p={{.PaginationDetails.PageNext}}" class="pager" data-toggle="tooltip" type="submit" data-placement="right" title="{{.PaginationDetails.PageNext}}">
+		                <i class="zmdi zmdi-chevron-right"></i>
+		            </a>
+		        {{else}}
+		        	<span class="pager-inactive">
+		                <i class="zmdi zmdi-chevron-right"></i>
+		        	</span>
+		        {{end}}
+		        
+		        <div class="rowsInTotal">von {{.PaginationDetails.RowsInTotal}}</div>
+		    </div>
+		    <div class="clearfix"></div>
+		</div>
+
+	{{end}}
+
+
+{{end}}

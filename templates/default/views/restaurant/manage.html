@@ -1,0 +1,111 @@
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+
+::setLocalJSForFooter{"js/lightbox.js"}endsetLocalJSForFooter
+
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+<main class="m-b-50">
+    <div class="row">
+        <div class="col s12 l10 col-horizontal-center">
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="heading-main">{{TemplateFunctionTranslate "page_heading_manage_my_restaurant"}}</h2>
+                </div>
+            </div>
+
+                     
+            <div class="row">
+                <div class="col s12">
+                    {{template "allFlashMessages" .}}
+                </div>
+            </div>
+
+            <div class="row m-t-30">
+
+                <div class="col s12">
+                   
+                    {{if .Restaurants}}
+                        <section class="list usagetype-list">
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="content-left left">
+                                                <div class="image-placeholder">
+                                                    {{if not (TemplateFunctionIsNullOrEmpty (index .Restaurants $.KeysForIteration.Restaurant_restaurant_image))}}
+                                                        <img class="lightbox"
+                                                        data-large="{{$.EnvConfVars.restaurantImgCDNPath_large}}/{{index .Restaurants $.KeysForIteration.Restaurant_restaurant_image}}"
+                                                        data-thumbnail="{{$.EnvConfVars.restaurantImgCDNPath_large}}/{{index .Restaurants $.KeysForIteration.Restaurant_restaurant_image}}"
+                                                        data-name="{{index .Restaurants $.KeysForIteration.Restaurant_restaurant_image}}"
+                                                        data-type="restaurant"
+                                                        data-id="restaurant-img-{{index .Restaurants $.KeysForIteration.Restaurant_id}}"
+                                                        src="{{$.EnvConfVars.restaurantImgCDNPath_large}}/{{index .Restaurants $.KeysForIteration.Restaurant_restaurant_image}}">
+                                                    {{else}}
+                                                        <p class="grey-text text-lighten-2"><span class="material-icons">snippet_folder</span></p>
+                                                    {{end}}
+                                                </div>
+                                            </div>
+                                            <div class="content-right left m-l-20">
+                                                <div class="card-header">
+                                                    
+                                                    <h6 class="">
+                                                        {{index .Restaurants $.KeysForIteration.Restaurant_name}}
+                                                    </h6> 
+                                                    <p class="tiny-text m-t-5 grey_-text">
+                                                        {{TemplateFunctionTranslate "message_created_by"}} {{index .Restaurants "created_by_first_name"}} {{index .Restaurants "created_by_last_name"}}
+
+                                                        | Erstellungsdatum: {{TemplateFunctionLocalizeDate (index .Restaurants $.KeysForIteration.Restaurant_crdate)}}
+                                                    </p> 
+                                                    
+                                                </div>
+                                                <div class="left">    
+                                                    <div class="m-t-10 m-b-10">
+                                                        <h6 class="m-b-5">
+                                                            {{TemplateFunctionTranslate "message_address"}} 
+                                                        </h6>
+                                                        <p>
+                                                            {{index .Restaurants $.KeysForIteration.Restaurant_address}}
+                                                            {{if not (TemplateFunctionIsNullOrEmpty (index .Restaurants $.KeysForIteration.Restaurant_address_additional))}}
+                                                                {{index .Restaurants $.KeysForIteration.Restaurant_address_additional}}
+                                                            {{end}}
+                                                            {{index .Restaurants $.KeysForIteration.Restaurant_postal_code}}
+                                                            {{index .Restaurants $.KeysForIteration.Restaurant_city}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="right m-r-50">
+                                                    <h6>Ansprechpartner</h6>
+                                                    <p>
+                                                       <b>
+                                                            {{.UserDetails.First_name}} {{.UserDetails.Last_name}}
+                                                        </b>
+                                                    </p>
+                                                    <p><b>{{TemplateFunctionTranslate "form_label_email"}}</b> {{.UserDetails.Email}}</p>
+                                                    <p><b>{{TemplateFunctionTranslate "form_label_telephone"}}</b> {{.UserDetails.Telephone}}</p>
+                                                    <p><b>{{TemplateFunctionTranslate "form_label_mobile_number"}}</b> {{.UserDetails.Mobile}}</p>
+                                                    <div class="col s12 right-align">
+                                                        <a href="/menuitem/manage/{{index .Restaurants $.KeysForIteration.Restaurant_id}}" class="btn">MenuItem</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    {{else}}
+                        <div class="general-info-container">
+                            Noch kein Restaurant angelegt.
+                        </div>
+                    {{end}}
+                </div>
+            </div>
+		</div>
+    </div>
+</main>
+{{end}}

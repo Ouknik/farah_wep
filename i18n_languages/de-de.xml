@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lang country="de">
+	
+
+	<!-- ############# ORPHAN MESSAGES ############ -->
+	<tag id="salutation_M">Herr.</tag>
+	<tag id="salutation_F">Frau.</tag>
+	<tag id="date">02.01.2006</tag>
+	<tag id="dateTime">02.01.2006 15:04 Uhr</tag>
+	<tag id="by">Von</tag>
+	<tag id="welcome">Herzlich Willkommen</tag>
+	<tag id="javascript_date_format">dd.mm.yyyy</tag>
+	<!-- il8n-language identifier ORPHAN-MESSAGES -->
+	<!-- ########### END ORPHAN MESSAGES ########## -->
+	
+	
+	
+	
+	<!-- ########### FORM LABELS AND OPTIONS ########## -->
+	<tag id="form_label_heading">Überschrift</tag>
+	<tag id="form_label_title">Titel</tag>
+	<tag id="form_label_first_name">Vorname</tag>
+	<tag id="form_label_last_name">Nachname</tag>
+	<tag id="form_label_email">E-Mail</tag>
+	<tag id="form_label_password">Passwort</tag>
+	<tag id="form_label_confirmPassword">Passwort bestätigen</tag>
+	<tag id="form_label_city">Wo wohnst du?</tag>
+	<tag id="form_label_uploadAvatar">FÜge ein Bild hinzu</tag>
+	<tag id="form_label_presentPassword">Jetziges Passwort</tag>
+	<tag id="form_label_newPassword">Neues Password</tag>
+	<tag id="form_label_address">Adresse</tag>
+	<tag id="form_label_address_additional">Zusatz</tag>
+	<tag id="form_label_city">Stadt</tag>
+	<tag id="form_label_country">Land</tag>
+	<tag id="form_label_company_or_name">Name/Firma</tag>
+	<tag id="form_label_postal_code">Postleitzahl</tag>
+	<tag id="form_label_salutation">Anrede</tag>
+	<tag id="form_label_telephone">Festnetz</tag>
+	<tag id="form_label_mobile_number">Mobil</tag>
+	<tag id="form_label_description">Bemerkung</tag>
+	<tag id="form_label_begin_date">Veraussichtlich Beginndatum</tag>
+	<tag id="form_label_deadline_date">Frist</tag>
+	<tag id="form_label_module_add">Modul hinzufügen</tag>
+	<tag id="form_label_estimated_days">Aufwand in Tagen</tag>
+	<tag id="form_label_invite_user_role">Rolle des Eingeladenen</tag>
+	<tag id="form_label_restaurant_name">Restaurantname</tag>
+	<tag id="form_label_restaurant_description">Bemerkung</tag>
+	<tag id="form_label_contact_person_name">Vor-, Nachname</tag>
+	<tag id="form_label_contact_person_email">E-Mail</tag>
+	<tag id="form_label_contact_person_telephone">Telefon</tag>
+	<tag id="form_label_contact_person_mobile">Mobile</tag>
+	<tag id="form_label_premiumpackage_title">Name</tag>
+	<tag id="form_label_premiumpackage_description">Kurzbeschreibung</tag>
+	<tag id="form_label_premiumpackage_price">Preis/Monat</tag>
+	<tag id="form_label_highlight_description">Highlights- Beschreibung</tag>
+	<tag id="form_label_menuitems_description_internal">menuitemss- Beschreibung</tag>
+	<tag id="form_label_highlight_title">Title</tag>
+	<tag id="form_label_date_display">Anzuzeigendes Datum</tag>
+	<tag id="form_label_date_begin">Aktion beginnt am</tag>
+	<tag id="form_label_date_end">Aktion endet am</tag>
+	<tag id="form_label_menuitem_name">Produktname</tag>
+	<tag id="form_label_menuitem_name_display">Produktname (wird angezeigt)</tag>
+	<tag id="form_label_menuitem_price">Produktpreis</tag>
+	<tag id="form_label_menuitem_description_internal">Bemerkung für internen Zwecke</tag>
+	<tag id="form_label_product_description">Produktbeschreibung</tag>
+	<tag id="label_food_cat_soups">Suppen</tag>
+	<tag id="label_food_cat_salads">Salate</tag>
+	<tag id="label_food_cat_dessert">Dessert</tag>
+	<tag id="label_food_cat_drinks">Getränke</tag>
+	<tag id="label_food_cat_main_course">Hauptgericht</tag>
+
+	<!-- il8n-language identifier FORM-LABELS -->
+	
+	<tag id="form_option_male">Herr</tag>
+	<tag id="form_option_female">Frau</tag>
+	<tag id="form_option_agreeTermsAndCondition">Ich habe die AGBs gelesen und erkläre hiermit einverstanden.</tag>
+	<tag id="form_option_rememberMe">Eingeloggt bleiben</tag>
+	<tag id="form_option_invite_user_send_email">Aktivierungscode an die eingeladene Person per E-Mail senden.</tag>
+	<tag id="form_option_invite_user_agreeTermsAndCondition">Mit dem Klicken auf "Einladung" erkläre ich mich einverstanden, dass der eingeladene Teilnehmer bereits über die Einladung informiert ist und die Angabe der Details des eingeladenen Teilnehmers nur eine technische Formalität darstellt</tag>
+	<tag id="form_option_menuitem_is_regular_item">Ist ein reguläres Produkt (wird für den Kunden aufgelistet)</tag>
+	<tag id="form_option_menuitem_is_active">ist verfügbar</tag>
+	<!-- il8n-language identifier FORM-OPTIONS -->
+	
+	
+	
+	<!-- ########### FORM CAPTIONS ########### -->
+	<tag id="form_caption_register">Registrieren</tag>
+	<tag id="form_caption_signIn">Anmelden</tag>
+	<tag id="form_caption_getNewPassword">Passwort anfordern</tag>
+	<tag id="form_caption_cancel">Abbrechen</tag>
+	<tag id="form_caption_submit">Senden</tag>
+	<tag id="form_caption_delete">Löschen</tag>
+	<tag id="form_caption_change">Ändern</tag>
+	<tag id="form_caption_add">Hinzufügen</tag>
+	<tag id="form_caption_save">Speichern</tag>
+	<tag id="form_caption_invite_user">Benutzer einladen</tag>
+	<tag id="form_caption_savePreview">zum Vorschau</tag>
+	<tag id="form_caption_setNewPassword">Passwort festlegen</tag>
+	<tag id="form_caption_inviteuser_manage">alle Eingeladenen</tag>
+	<tag id="form_caption_inviteuser_invite">Mitarbeiter einladen</tag>
+	<tag id="form_caption_restaurant_add">Restaurant anlegen +</tag>
+	<tag id="form_caption_goto_restaurants">zurück zur Restaurantverwaltung</tag>
+	<tag id="form_caption_goto_premiumpackages">zurück zur Premiumpaketeverwaltung</tag>
+	<tag id="form_caption_premiumpackage_add">Premiumpaket anlegen</tag>
+	<tag id="form_caption_highlight_add">Hightlight anlegen +</tag>
+	<tag id="form_caption_goto_highlights">zurück zur Highlightsverwaltung</tag>
+	<tag id="form_caption_menuitem_add">Produkt anlegen +</tag>
+	<!-- il8n-language identifier FORM-CAPTIONS -->
+	
+	
+	
+	<!-- ########## FORM PLACEHOLDERS ########## -->
+	<tag id="form_placeholder_city">San-Francisco</tag>
+	<!-- il8n-language identifier FORM-PLACEHOLDERS -->
+	
+	
+	
+	<!-- ########## FROM HINTS ########## -->
+	<tag id="form_hint_registerEmail">Deine E-Mail wird dein Login-ID sein</tag>
+	<tag id="form_hint_registerPassword">Für Sicherheit wähle einen starken Passwort ein.</tag>
+	<tag id="form_hint_acceptTermsAndCondition">By clicking Sign Up, you agree to our <![CDATA[<a href="http://www.google.de">Terms and Conditions.</a>]]></tag>
+	<tag id="form_hint_fileUploadAllowedFormats_avatar">Mögliche Formate: jpg, png</tag>
+	<tag id="form_hint_optionalField">* optional</tag>
+	<tag id="form_hint_presentPassword">Dein jetziges Passwort eingeben</tag>
+	<tag id="form_hint_emailNoneditable">E-Mail-Adresse kann nicht geändert werden</tag>
+	<tag id="form_hint_address_street">Strasse / Hausnummer</tag>
+	<tag id="form_hint_invite_user_role">Administrator können z.B.: andere Benutzer hinzufügen.</tag>
+	<tag id="form_hint_invite_user_email">Eine E-Mail-Adresse, mit der sich der Einladende registrieren soll.</tag>
+	<tag id="form_hint_invite_user_send_email">Sie können den Aktivierungscode der einladenden Person auch manuell mitteilen.</tag>
+	<tag id="form_hint_superior_values_net_initial_yields">%</tag>
+	<tag id="form_hint_superior_values_usage_period">Jahre</tag>
+	<tag id="form_hint_superior_values_management_costs">€/m² MF/Monat</tag>
+	<tag id="form_hint_premiumpackage_description">Der Restaurantbetreiber kann dies lesen</tag>
+	<!-- il8n-language identifier FORM-HINTS -->
+	
+	
+	
+	<!-- ########### FORM ERRORS ########## -->
+	<tag id="form_error_illegal">Hmmm. Etwas stimmt hier einfach nicht!</tag>
+	<tag id="form_error_isMandatory">Dies ist ein Pflichtfeld.</tag>
+	<tag id="form_error_isMandatory_first_name">Bitte gib deinen Vornamen ein</tag>
+	<tag id="form_error_isMandatory_last_name">Bitte gib deinen Nachnamen ein</tag>
+	<tag id="form_error_invite_user_first_name">Bitte geben Sie den Vornamen des Eingeladenen ein</tag>
+	<tag id="form_error_invite_user_last_name">Bitte geben Sie den Nachnamen des Eingeladenen ein</tag>
+	<tag id="form_error_invite_user_email">Bitte geben Sie E-Mail des Eingeladenen ein</tag>
+	<tag id="form_error_exceedsMax">Exceeds limit</tag>
+	<tag id="form_error_underMin">Unvollständig</tag>
+	<tag id="form_error_isNotInt">Die Eingabe war nicht korrekt.</tag>
+	<tag id="form_error_isNotNumericOnly">We need numbers only</tag>
+	<tag id="form_error_commaSeperatedFloat">Bitte geben Sie eine gültige Zahl ein, z.B.: 19,05.</tag>
+	<tag id="form_error_postal_code">Bitte geben Sie eine gültige Postleitzahl ein.</tag>
+	<tag id="form_error_isNotFloat">We need an Float</tag>
+	<tag id="form_error_isNotEmail">Bitte gib deinen E-Mailadresse ein</tag>
+	<tag id="form_error_isNotString">We need a string</tag>
+	<tag id="form_error_filesizeNotReadable">File size not readable</tag>
+	<tag id="form_error_exceedsMaxFileSize">Exceeds max upload size (%.2f MB > %.2f MB)</tag>
+	<tag id="form_error_invalidFileExtension">Invalid File Extension</tag>
+	<tag id="form_error_wrongPostValue">Wrong Post Value</tag>
+	<tag id="form_error_cityNotFound">City not found</tag>
+	<tag id="form_error_passwordNotIdentical">Password not identical</tag>
+	<tag id="form_error_userAlredyExists">Invlid user. Please try to login.</tag>
+	<tag id="form_error_emailNotConfirmed">E-Mailadresse nicht bestätigt.</tag>
+	<tag id="form_error_passwordNotMatch">E-Mailadresse oder Passwort is falsch.</tag>
+	<tag id="form_error_lostPasswordUserNotFound"><![CDATA[<h5 class='warning'>Neues Passwort wurde generiert.</h5><p class='small'>Die E-Mail könnte jedoch nicht zugestellt werden. Bitte kontolliere, die E-Mail adresse richtig ist.</p>]]></tag>
+	<tag id="form_error_passwordInvalid">Das Passwort muss mindestens 8 Zeichen lang sein, mindestens eine Ziffer- ein Sonderzeichen enthalten und eine Mischung aus Groß- und Kleinbuchstaben enthalten.</tag>
+	<tag id="form_error_invalid_avatar_file">Die Datei muss in einem beliebigen Bildformat vorliegen und darf nicht größer als %sMB sein.</tag>
+	<tag id="form_error_upload_failed">Etwas ist furchtbar schief gelaufen. Die Datei konnte nicht hochgeladen werden.</tag>
+	<tag id="form_error_invalid_date">Ungültiges Datum</tag>
+	<tag id="form_error_invite_user_email_invalid">Die E-Mailadress stimmt nicht mit den hinterlegten Angaben überein.</tag>
+	<tag id="form_error_upload_invalid_csv_file">Flächen konnten nicht importiert werden. Bitte stellen Sie sicher, dass die CSV-Datei ein gültiges CSV-Format hat. Beachten Sie außerdem, dass die Werte keine doppelten oder einfachen Anführungszeichen enthalten dürfen. Die Werte müssen durch ein Komma getrennt werden und die Zeilen müssen mit einem Semikolon enden. Die CSV-Datei muss in UTF-8 kodiert sein.</tag>
+	<!-- il8n-language identifier FORM-ERRORS -->
+	
+	
+	
+	<!-- ########### EMAIL SUBJECTS ######### -->
+	<tag id="email_subject_registration">Welcome To %s</tag>
+	<tag id="email_subject_lostPassword">Dein %s Passwort wurde aktualisiert</tag>
+	<tag id="email_subject_profileSettingsUpdated">Dein %s Profil wurde updated</tag>
+	<tag id="email_subject_invite_user">Du bist eingeladen</tag>
+	<tag id="email_subject_invite_restaurant">Sie sind eingeladen</tag>
+	<tag id="email_subject_welcome">Willkommen zu einer besseren Möglichkeit, DB Netze Projektentwicklung zu verwalten</tag>
+	<!-- il8n-language identifier EMAIL-SUBJECTS -->
+	
+	
+	
+	<!-- ########### ERRORS ######### -->
+	<tag id="error_generalError">Oops! Ein Fehler ist aufgetreten</tag>
+	<tag id="error_invalidSession"><![CDATA[<h5 >Dein Session ist abgelaufen!</h5><p class='small'>Du bist entweder nicht eingeloggt oder ist die Sitzung nach einer längeren Inaktivität abgelaufen. Bitte log dich erneuert ein.</p>]]></tag>
+	<tag id="error_invalidSession_custom"><![CDATA[<h5 >%s, dein Session ist abgelaufen!</h5><p class='small'>Du bist entweder nicht eingeloggt oder ist die Sitzung nach einer längeren Inaktivität abgelaufen. Bitte log dich erneuert ein.</p>]]></tag>
+	<tag id="error_confirmationCodeNotFound">Die Seite existiert nicht oder ist veraltet.</tag>
+	<tag id="error_confirmationCodeConfirmedAlready">Du hast deine E-Mailadresse bereits bestätigt. <![CDATA[<a href="/user/login">Anmelden</a>]]></tag>
+	<tag id="error_confirmEmailToContinue"><![CDATA[<h5 >Bitte bestätige deine E-Mail zuerst.</h5> <p class='small'>Falls du keine e-Mail erhalten hast, überprüfe bitte den Spam-Ordner oder nehme <a href="">kontakt auf</a></div>]]></tag>
+	<!-- il8n-language identifier ERRORS -->
+	
+	
+	<!-- ########### SUCCESS ########### -->
+	<tag id="success_thankyouWithFirstName">Danke %s!</tag>
+	<tag id="success_registrationComplete">Wir freuen uns, dich an Bord zu haben. Um auf dein Konto zuzugreifen, melde dich hier an.</tag>
+	<tag id="success_lostPasswordChangedAndMailSent"><![CDATA[<h6 class='success'>Danke %s!</h6><p class='small'>Wir haben dir eine Mail mit auto-generierten Passwort gesendet.</p>]]></tag>
+	<tag id="success_logout_successful"><![CDATA[<h6 class='success'>Erfolgreich abgemeldet, %s!</h6><p class='small'>Außer in unseren Herzen – da bist du natürlich immer präsent. Wir vermissen dich jetzt schon – bis ganz bald.</p>]]></tag>
+	<tag id="success_passwordChanged_successful">Passwort wurde erfolgreich geändert</tag>
+	<tag id="success_avatarUploaded_successful">Profilbild gespeichert.</tag>
+	<tag id="success_welcomeWithFirstName">Herzlich Willkommen %s!</tag>
+	<tag id="success_invited_user_email_sent"><![CDATA[<h6 class='success'>Eine Einladung mit Registrierungscode wurde an %s gesendet.</h6>]]></tag>
+	<tag id="success_invited_user"><![CDATA[Der Benutzer %s %s, mit E-Mail %s wurde hinzugefügt. Um die Registrierung abzuschließen, muss der Benuzter sich unter den folgenden Link sich registrieren. <p class='p-5 strong'>%s</p>]]></tag>
+	<tag id="success_restaurant_created">Restaurant wurde angelegt</tag>
+	<tag id="success_restaurant_updated">Restaurant-Angaben wurden gespeichert</tag>
+	<tag id="success_premiumpackage_created">Premiumpaket wurde angelegt</tag>
+	<tag id="success_premiumpackage_updated">Premiumpaket-Angaben wurden gespeichert</tag>
+	<tag id="success_highlight_created">Highlight wurde angelegt</tag>
+	<tag id="success_highlight_updated">Highlight-Angaben wurden gespeichert</tag>
+	<tag id="success_highlight_deleted">Highlight wurde gelöscht</tag>
+	<tag id="success_menuitem_created">Gericht wurde erstellt</tag>
+	<tag id="success_menuitem_updated">Gericht wurde gespeichert</tag>
+	<!-- il8n-language identifier SUCCESS -->
+	
+	
+	
+	<!-- ########### GENERAL MESSAGS ########## -->
+	<tag id="message_contactUs">Hast du Schwirigkeiten? <![CDATA[<a href="">Kontakt</a>]]></tag>
+	<tag id="message_dontHaveAccount">Noch nicht registriert?</tag>
+	<tag id="message_signUp">Hier registrieren</tag>
+	<tag id="message_alreadyHaveAccount">Bereits registriert?</tag>
+	<tag id="message_signIn">Anmelden</tag>
+	<tag id="message_logout_securityadvice"><![CDATA[<h5 class='warning'>Security advice</h5><p class='small'>For security reasons, it is recommended to close the browser completely (ie all browser windows or browser tabs) and, if necessary, reopen it for visiting other websites. This note applies in particular if you used an unknown computer at a public or for other people accessible terminal - for example, in an Internet cafe, in a hotel or at work.]]></tag>
+	<tag id="message_hallo">Hallo</tag>
+	<tag id="message_listEmpty"><![CDATA[<h5 class=''>Keine Ergebnisse</h5><p class=''>Versuche mit weiniger Kriterien, falls du nach etwas suchst.</p>]]></tag>
+	<tag id="message_activeLast">Zuletzt aktiv</tag>
+	<tag id="message_activeNever">nie</tag>
+	<tag id="message_deleteImage">Bild löschen</tag>
+	<tag id="message_welcome_back">Willkommen</tag>
+	<tag id="message_address">Addresse</tag>
+	<tag id="message_crdate">Erstellt am</tag>
+	<tag id="message_created_by">Erstellt von</tag>
+	<tag id="message_weSentEmail">Du erhählst in Kurze eine E-Mail von uns.</tag>
+	<tag id="message_checkYourEmailToCompleteReg">Bitte folge die beschriebnen Schritte, um die Anmeldung zu vollenden.</tag>
+	<tag id="message_registration_completed"><![CDATA[<h2 class="heading-main m-10">Herzlich Willkommen!</h2> <p>Deine Anmeldung wurde erfolgreich abgeschlossen. Unter den folgenden Link kannst du dich nun einloggen, <span><a href='/user/login'>login</a></span></p>]]></tag>
+	<tag id="message_file_upload_in_progress">Datei wird hochgeladen, bitte warten ...</tag>
+	<tag id="message_crop_profile_pic">Ein gut gezoomtes symmetrisches Foto hinterlässt den besten Eindruck.</tag>
+	<tag id="message_date_of_begin">Begonnen am</tag>
+	<tag id="message_invite_user_details">Name und E-Mail des Benutzers, der eingeladen werden soll</tag>
+	<tag id="message_invite_user_invited_on">am</tag>
+	<tag id="message_project_created_by">Erstell von:</tag>
+	<tag id="message_project_assigned_to">Verantwortlichkeit</tag>
+	<tag id="message_invite_user_responded_on">Der Benutzer hat sich am %s registriert.</tag>
+	<tag id="message_invite_user_response_pending">Der eingeladene hat sich noch nicht registriert.</tag>
+	<tag id="message_invite_user_invited_by">Eingeladen von</tag>
+	<tag id="message_invite_user_not_deleteable"><![CDATA[Hinweis: Diese Einladung kann nicht mehr störniert werden. Du kannst jedoch den Benutzer unter <a href='/user/manage'>Benutzerverwaltung</a> entfernen.]]></tag>
+	<tag id="message_user_invited_by">eingeladen von</tag>
+	<tag id="message_user_invited_on">eingeladen am</tag>
+	<tag id="message_premiumpackage_created_by">Erstellt von</tag>
+	<tag id="message_premiumpackage_description">Kurzbeschreibung</tag>
+	<tag id="message_restaurant_assign_categories">Ein Restaurant muss mindestens zu einer oder mehreren Kategorien zugeordnet werden.</tag>
+	<tag id="message_menuitem_assign_categories">Ein Produkt kann zu einer oder mehreren Kategorien zugeordnet werden.</tag>
+	<!-- il8n-language identifier MESSAGES -->
+	
+	
+
+	<!-- ########### MODALS ########## -->
+	<tag id="modal_title_uploadAvatar">Füge ein Bild hinzu</tag>
+	<tag id="modal_title_edit_profile_pic">Profilbild bearbeiten</tag>
+	<!-- il8n-language identifier MODAL-TITLES -->
+	
+	
+	
+	<!-- ########### MENU ITEMS ########  -->
+	<tag id="menu_edit">Bearbeiten</tag>
+	<tag id="menu_block_0">Sperren</tag>
+	<tag id="menu_block_1">Entsperren</tag>
+	<tag id="menu_delete">Löschen</tag>
+	<tag id="menu_delete_undo">Zurückstellen</tag>
+	<tag id="menu_trashed">Papierkorb</tag>
+	<tag id="menu_modules_user_list">Benutzer</tag>
+	<tag id="menu_sign_out">Ausloggen</tag>
+	<tag id="menu_account_settings">Kontoeinstellungen</tag>
+	<tag id="menu_change_password">Passwort ändern</tag>
+	<!-- il8n-language identifier MENU-ITEMS -->
+	
+	
+	<!-- ########## PAGE HEADINGS ########## -->
+	<tag id="page_heading_userManagement">Benutzerverwaltung</tag>
+	<tag id="page_heading_lostpassword">Passwort vergessen?</tag>
+	<tag id="page_heading_changepassword">Passwort zurücksetzen</tag>
+	<tag id="page_heading_accountsettings_personal_details">Persönliche Daten</tag>
+	<tag id="page_heading_accountsettings_private_address">Telefon</tag>
+	<tag id="page_heading_invite_user">Benutzer einladen - Berechtigungen gewähren</tag>
+	<tag id="page_heading_invite_user_manage">Alle eingeladene/hinzugefügte Benutzer</tag>
+	<tag id="page_heading_user_manage">Mitarbeiterüberblick</tag>
+	<tag id="page_heading_restaurant_manage">Restaurants verwalten</tag>
+	<tag id="page_heading_restaurant_add">Restaurant anlegen</tag>
+	<tag id="page_heading_restaurant_edit">Restaurant bearbeiten</tag>
+	<tag id="page_heading_premiumpackage_manage">Premiumpakete verwalten</tag>
+	<tag id="page_heading_premiumpackage_add">Premiumpaket anlegen</tag>
+	<tag id="page_heading_premiumpackage_edit">Premiumpaket bearbeiten</tag>
+	<tag id="page_heading_manage_highlights">Highlights verwalten</tag>
+	<tag id="page_heading_manage_menuitems">Produkte verwalten</tag>
+	<tag id="page_heading_highlight_add">Highlight anlegen</tag>
+	<tag id="page_heading_highlight_edit">Highlight bearbeiten</tag>
+	<tag id="page_heading_menuitem_add">Neues Produkt anlegen</tag>
+	<tag id="page_heading_menuitem_edit">Produkt bearbeiten</tag>
+	<!-- il8n-language identifier PAGE-HEDAINGS -->
+	
+	
+	
+	
+	<!-- ########## TABLE HEADINGS ########## -->
+	<tag id="table_heading_name">Name</tag>
+	<tag id="table_heading_city">Wohnort</tag>
+	<tag id="table_heading_email">E-Mail</tag>
+	<tag id="table_heading_registeredOn">Registriert am</tag>
+	<tag id="table_heading_createdFrom">Erstellt von</tag>
+	<tag id="table_heading_description">Bemerkung</tag>
+	<tag id="table_heading_title">Titel</tag>
+	<tag id="table_heading_dateCreatedOn">Erstellt am</tag>
+	<!-- il8n-language identifier TABLE-HEADINGS -->
+	
+
+
+	<!-- ########## ASIDE MENU ITEMS ########## -->
+	<tag id="aside_menu_account_settings">Kontoeinstellungen</tag>
+	<tag id="aside_menu_password">Kennwort</tag>
+	<tag id="aside_menu_invite_user">Mehrbenutzerzugriff</tag>
+	<!-- il8n-language identifier ASIDE-MENU-ITEMS -->
+
+	
+
+	<!-- ########## GENERAL HEADINGS ########## -->
+	<tag id="heading_invite_user_set_password">Ein letzter Schritt lege ein Passwort fest</tag>
+	<tag id="heading_invitees_user_list">Liste der hinzugefügte Benutzer</tag>
+	<tag id="heading_restaurant_address">Restaurant Adresse</tag>
+	<tag id="heading_restaurant_categories">Restaurantkategorien</tag>
+	<tag id="heading_premiumpackage_price">Premiumpaktpreis</tag>
+	<tag id="heading_menuitem_categories">Produktkategorien</tag>
+	<!-- il8n-language identifier GENERAL-HEADINGS -->
+
+
+	<!-- ########## TOOLTIPPS ########## -->
+	<tag id="tooltipp_"></tag>
+	<!-- il8n-language identifier TOOLTIPPS -->
+
+
+
+
+</lang>

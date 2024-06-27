@@ -1,0 +1,78 @@
+::import{"partials/top_nav", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized"}endimport
+
+::setLocalCSS{"css/dropzone-common.css"}endsetLocalCSS
+::setExternalCSS{""}endsetExternalCSS
+::setExternalJSForHeader{"https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"}endsetExternalJSForHeader
+::setLocalJSForFooter{"js/handle-file-upload-dropzone.js"}endsetLocalJSForFooter
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+<main class="m-b-50">
+    <div class="content-wrapper-before weusable-pink"></div>
+   
+
+    <div class="row">
+
+        <div class="col s12 m10 l8 xl6 col-horizontal-center m-b-50">
+            
+            <div class="row m-b-10">
+
+                <div class="col s12">
+                    <div class="left">
+                        <a href="" class="strong">
+                            <span class="material-icons small" style="vertical-align: middle;">arrow_back_ios</span>
+                            {{TemplateFunctionTranslate "form_caption_goto_user_deliveryagent"}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-t-30">
+                <div class="col s12">
+                    <h2 class="heading-main">
+                       
+                            {{TemplateFunctionTranslate "page_heading_user_delivery_agent_add"}}
+                      
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    {{template "allFlashMessages" .}}
+                </div>
+            </div>
+            <div class="container-table-bg">                  
+            <div class="row">
+                <div class="col s12">
+                    <form enctype="multipart/form-data" action="" method="post" autocomplete="off" class="">
+                        <section class="form-elements">
+                            
+                            {{.Form.First_name}}
+                            {{.Form.Last_name}}
+                            {{.Form.Mobile_number}}
+                            {{.Form.AgreeTermsAndCondition}}
+                           
+                            
+                        </section>
+                        <div class="m-t-20">
+                            <a href="/" class="btn-cancel">{{TemplateFunctionTranslate "form_caption_cancel"}}</a>
+                            <button class="btn" type="submit">
+                               
+                                    {{TemplateFunctionTranslate "form_caption_save"}}
+                              
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+
+
+        </div>
+    </div>
+</main>
+
+{{end}}

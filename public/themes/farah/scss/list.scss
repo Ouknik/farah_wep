@@ -1,0 +1,79 @@
+
+.list .card {
+    border-radius: $radius-default;
+    background-color: color('theme-list-colors', 'background');
+}
+
+.card-content {
+    width: 100%;
+}
+
+.content-left {
+    width: max-content;
+}
+
+.content-right {
+    width: 80%;
+}
+
+.content-menu {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+
+.image-placeholder {
+    width: $projectImageContainerSize;
+    height: $projectImageContainerSize;
+    border-radius: $radius-default;
+    background-color: color('theme-list-colors', 'image-placeholder');
+}
+
+.image-placeholder p {
+    width: $projectImageContainerSize;
+    height: $projectImageContainerSize;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.image-placeholder span.material-icons {
+    font-size: 5em;
+    cursor: default;
+    position: absolute;
+    top: 35%;
+    -ms-transform: translateY(-35%);
+    transform: translateY(-35%);
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.image-placeholder img {
+    @extend .z-depth-2;
+    width: $projectImageContainerSize;
+    height: $projectImageContainerSize;
+    object-fit: cover;
+    border-radius: $radius-default;
+    cursor: pointer;
+}
+
+.image-placeholder img.active {
+    box-shadow: none !important;
+    min-width: 100% !important;
+    height: auto;
+    object-fit: contain;
+}
+
+.toggle-text {
+    cursor: pointer;
+}
+
+
+#materialbox-overlay {
+    background-color: color('theme-list-colors', 'background');
+}
+
+.card-header {
+}

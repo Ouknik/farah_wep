@@ -1,0 +1,149 @@
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized"}endimport
+
+
+::setLocalCSS{}endsetLocalCSS
+::setExternalCSS{"https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.css"}endsetExternalCSS
+
+::setLocalJSForHeader{}endsetLocalJSForHeader
+::setExternalJSForHeader{}endsetExternalJSForHeader
+
+::setExternalJSForFooter{"https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.js"}endsetExternalJSForFooter
+::setLocalJSForFooter{"js/modalAvatar.js", "js/dropzone.js", "js/handle-avatar.js"}endsetLocalJSForFooter
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+<!-- Modal Cropper -->
+<div id="modalAvatarCropper" class="modal modal-fit-to-content">
+    <div class="modal-content">
+        <h4>{{TemplateFunctionTranslate "modal_title_edit_profile_pic"}}</h4>
+        <p class="small">{{TemplateFunctionTranslate "message_crop_profile_pic"}}</p>
+        <div class="center-align m-t-20">
+            <button id="cropperjsCancel" class='btn-icon-round danger tooltipped grey darken-4 white-text m-r-20' data-position="left" data-tooltip='{{TemplateFunctionTranslate "form_caption_cancel"}}'>
+                <i class="material-icons">close</i>
+            </button>
+            <button id="trigger-rotate-left-avatar" class='btn-icon-round tooltipped m-r-20' data-position="top" data-tooltip='{{TemplateFunctionTranslate "message_rotateImage"}}'>
+                <i class="material-icons">rotate_left</i>
+            </button>
+            <button id="trigger-rotate-right-avatar" class='btn-icon-round tooltipped m-r-20' data-position="top" data-tooltip='{{TemplateFunctionTranslate "message_rotateImage"}}'>
+                <i class="material-icons">rotate_right</i>
+            </button>
+            <button id="cropperjsDone" class='btn-icon-round success tooltipped green white-text' data-position="right" data-tooltip='{{TemplateFunctionTranslate "form_caption_save"}}'>
+                <i class="material-icons">check</i>
+            </button>
+        </div>
+        <div class="cropper-img-container"  id="cropperjsContainer"></div>
+    </div>
+    <div class="modal-footer">
+        <!--
+        <button type="" id="" class="waves-effect btn-cancel m-r-10">{{TemplateFunctionTranslate "form_caption_cancel"}}</button>
+        <button type="" id="cropperjsDone" class="waves-effect btn">{{TemplateFunctionTranslate "form_caption_save"}}</button>
+        -->
+    </div>
+</div>
+<!-- Modal Cropper END -->
+
+<main>
+    <div class="row">
+        <div class="col s12 m10 l8 xl6 col-horizontal-center">
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="heading-main">{{TemplateFunctionTranslate "page_heading_accountsettings_personal_details"}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                	<form action="" method="POST" enctype="multipart/form-data" autocomplete="off" class="" >
+                        <div class="row">
+                            <div class="col s12 xl3">
+                                <div class="avatar-preview-box">
+                                    <div class="avatar-upload-container dropzone-trigger">
+                                        <div id="previews"><div id="dropzone-template"></div></div>
+
+                                        <!-- profilepic container --> 
+                                        <div class="dropzone-cotainer-profilepic">
+                                            {{if (ne .UserDetails.Avatar "")}}
+                                                <img
+                                                    id="profile-lg-img-{{.UserDetails.Id}}"
+                                                    onerror="handleMissingImages(this)"
+                                                    data-name="{{.UserDetails.Avatar}}"
+                                                    data-type="profilePic"
+                                                    data-id="profile-lg-img-{{.UserDetails.Id}}"
+                                                    src="{{.HeaderDetails.PublicPath}}/profilepic_large/{{.UserDetails.Avatar}}"
+                                                >
+                                            {{end}}
+                                        </div>
+                                        <!-- end profilepic container --> 
+
+                                        <!-- background camera icon -->
+                                        <div class='dropzone-container-background {{if (ne .UserDetails.Avatar "")}}hide{{end}}'>
+                                            <i class="material-icons large dropzone-trigger">add_a_photo</i>
+                                            <p class="dropzone-trigger">Bild hier reinziehen oder klicken</p>
+                                        </div>
+                                        <!-- end background camera icon -->
+
+                                        <!-- dragover template -->
+                                        <div class="dropzone-container-dragover white-text hide">
+                                            <div class="dropzone-container-dragover-content">
+                                                <i class="material-icons medium">
+                                                arrow_downward
+                                                </i>
+                                            </div>
+                                        </div>
+                                        <!-- end dragover template -->
+
+
+                                        <div class="dropzone-container-error red-text hide">
+                                            <div class="dropzone-container-error-content">
+                                                <p><b>{{TemplateFunctionTranslate "error_generalError"}}</b></p>
+                                                <p>{{TemplateFunctionTranslateFormat "form_error_invalid_avatar_file" .EnvConfVars.profilepic_upload_size}}</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- dropzone container -->
+                                        <div class="dropzone-container-dropper" id="avatarDropzone"></div>
+                                        <!-- end dropzone container -->
+
+                                    </div>
+                                </div>
+                                
+                                <div class="center-align">
+                                    <button id="trigger-delete-avatar" class='btn-icon-round danger tooltipped {{if (eq .UserDetails.Avatar "")}}hide{{end}}' data-position="top" data-tooltip='{{TemplateFunctionTranslate "message_deleteImage"}}'>
+                                        <i class="material-icons">delete_outline</i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col s12 xl8">
+                                <div class="row">
+                                    <div class="col s6 m6">
+                                        {{.Form.Salutation}}
+                                    </div>
+                                    <div class="col s6 m6">
+                                        {{.Form.Title}}
+                                    </div>
+                                </div>
+                                {{.Form.First_name}}
+                                {{.Form.Last_name}}
+                                {{.Form.Email}}
+
+                                <h5 class="m-t-20 m-b-20">{{TemplateFunctionTranslate "page_heading_accountsettings_private_address"}}</h5>
+                                {{.Form.Telephone}}
+                                {{.Form.Mobile_phone}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 m-t-20 center">
+                                <a class="btn-cancel" href="/">{{TemplateFunctionTranslate "form_caption_cancel"}}</a>
+                                <button class="btn" type="submit">{{TemplateFunctionTranslate "form_caption_save"}}</button>
+                            </div>
+                        </div>
+                	</form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{{end}}

@@ -1,0 +1,51 @@
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+
+
+
+::setLocalJSForFooter{}endsetLocalJSForFooter
+
+
+{{define "content"}}
+
+{{template "top-nav" .}}
+
+<main>
+    <div class="row">
+        <div class="col s12 m10 l4 col-horizontal-center m-b-30">
+
+            <div class="row">
+                <div class="col s12 m-b-20">
+                    <div>
+                        <a href="/user/manage">&laquo; zurück zur Benutzerverwaltung</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="heading-main">{{TemplateFunctionTranslate "page_heading_invite_user"}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="m-b-10">{{TemplateFunctionTranslate "message_invite_user_details"}}</h5>
+                    <form enctype="multipart/form-data" action="" method="post" autocomplete="off" class="">
+                        {{.Form.Invitee_first_name}}
+                        {{.Form.Invitee_last_name}}
+                        {{.Form.Invitee_email}}
+                        {{.Form.Invitee_role}}
+                        {{.Form.Invitee_send_email}}
+                        <div class="divider m-b-20"></div>
+                        {{.Form.AgreeTermsAndCondition}}
+                        <div>
+                            <button class="btn-register" id="submit-invite-user" type="submit">{{TemplateFunctionTranslate "form_caption_invite_user"}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{{end}}

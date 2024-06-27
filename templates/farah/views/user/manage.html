@@ -1,0 +1,120 @@
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+<main>
+    <div class="row">
+        <div class="col s12 m10 l8 xl6 col-horizontal-center">
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="heading-main">{{TemplateFunctionTranslate "page_heading_user_manage"}}</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+
+                     
+                    <div class="row">
+                        <div class="col s12 right-align">
+                            <div>
+                                <a href="/inviteuser/manage" class="btn">
+                                    {{TemplateFunctionTranslate "form_caption_inviteuser_manage"}} <i class="material-icons">people</i>
+                                </a>
+                                <a href="/inviteuser/invite" class="btn">
+                                    {{TemplateFunctionTranslate "form_caption_inviteuser_invite"}} <i class="material-icons">add</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                     
+                    <div class="row">
+                        <div class="col s12">
+                            {{template "allFlashMessages" .}}
+                        </div>
+                    </div>
+
+
+                    <div class="row m-t-30">
+                        <div class="col s12">
+
+                            {{if .Users}}
+                                <ul class="collapsible">
+                                    {{range $index, $item := .Users}}
+                                        <li>
+                                            <div class="collapsible-header">
+                                            	<div class=""  style="overflow: hidden; height: 60px; width: 60px; border-radius: 50%; margin-right: 10px; text-align: center;">
+                                                    {{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.User_avatar_filename))}}
+                                                        <img src="{{$.HeaderDetails.ProfilePicCDNPath_Thumbnails}}/{{index $item $.KeysForIteration.User_avatar_filename}}" style="height: inherit; width: inherit;">
+                                                    {{else}}
+                                                        <i class="material-icons large grey-text" style="height: inherit; width: inherit; border-radius: 50%; font-size: 50px;">person</i>
+                                                    {{end}}
+                                            	</div>
+                                                <div>
+                                                    <span class="strong">
+                                                        {{index $item $.KeysForIteration.User_first_name}} {{index $item $.KeysForIteration.User_last_name}}</span> 
+                                                    <br>
+                                                    <span class="tiny-text">{{index $item $.KeysForIteration.User_email}}</span> 
+                                                </div>
+                                            </div>
+
+                                            <div class="collapsible-body">
+                                                <div>
+                                                    <span class="right">
+                                                            <a href="/privilege/banish/{{TemplateFunctionEncryptIdForUrl (index $item $.KeysForIteration.User_id)}}" id="trigger-banish-invitee" class="btn-icon-round danger tooltipped" data-position="top" data-tooltip="Remove user">
+                                                                <i class="material-icons">delete_outline</i>
+                                                            </a>
+                                                    </span>
+                                                    <p>
+                                                    	{{TemplateFunctionTranslate "message_user_invited_by"}}: 
+                                                        {{index $item $.KeysForIteration.User_first_name}} {{index $item $.KeysForIteration.User_last_name}}
+                                                    </p>
+                                                    <p>
+                                                        {{TemplateFunctionTranslate "message_user_invited_on"}}: 
+                                                        {{TemplateFunctionLocalizeDateTime (index $item $.KeysForIteration.User_crdate)}}
+                                                    </p>
+
+                                                    <div class="m-t-10">
+                                                    	<p class=""><i class="material-icons small orange-text text-lighten-2">settings_phone</i> 
+                                                        {{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.User_telephone))}}
+                                                            {{index $item $.KeysForIteration.User_telephone}}
+                                                        {{else}}
+                                                            -
+                                                        {{end}}
+                                                    	</p>
+                                                    	<p class=""><i class="material-icons small orange-text text-lighten-2">settings_cell</i> 
+                                                        {{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.User_mobile_phone))}}
+                                                            {{index $item $.KeysForIteration.User_mobile_phone}}
+                                                        {{else}}
+                                                            -
+                                                        {{end}}
+                                                    	</p>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                            
+                                        </li>
+                                    {{end}}
+                                </ul>
+                            {{else}}
+                                <div class="general-info-container">
+                                    {{TemplateFunctionTranslate "message_listEmpty"}}
+                                </div>
+                            {{end}}
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+		</div>
+    </div>
+</main>
+{{end}}

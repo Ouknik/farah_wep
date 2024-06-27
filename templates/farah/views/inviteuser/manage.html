@@ -1,0 +1,107 @@
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+
+<main>
+    <div class="row">
+        <div class="col s12 m10 l8 xl6 col-horizontal-center">
+
+            <div class="row">
+                <div class="col s12 m-b-20">
+                    <div>
+                        <a href="/user/manage">&laquo; zurück zur Benutzerverwaltung</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="heading-main">{{TemplateFunctionTranslate "page_heading_invite_user_manage"}}</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+
+                     
+                    <div class="row">
+                        <div class="col s12">
+                            {{template "allFlashMessages" .}}
+                        </div>
+                    </div>
+
+
+                    <div class="row m-t-30">
+                        <div class="col s12">
+
+                            {{if .Invitees}}
+                                <ul class="collapsible">
+                                    {{range $index, $item := .Invitees}}
+                                        <li>
+                                            <div class="collapsible-header">
+                                                <div>
+                                                    <span class="strong">
+                                                    	{{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.Invitees_invitee_responded_on)) }}
+                                                        	<i class="material-icons green-text text-lighten-2" style="vertical-align: bottom;">
+                                                        		how_to_reg
+                                                        	</i> 
+                                                        {{else}}
+                                                        	<i class="material-icons green-text text-lighten-4" style="vertical-align: bottom;">
+                                                        		person
+                                                        	</i> 
+                                                        {{end}}
+                                                        {{index $item $.KeysForIteration.Invitees_invitee_first_name}} {{index $item $.KeysForIteration.Invitees_invitee_last_name}}</span> 
+                                                    <br>
+                                                    <span class="tiny-text m-l-50">{{index $item $.KeysForIteration.Invitees_invitee_email}}</span> 
+                                                </div>
+                                            </div>
+
+                                            <div class="collapsible-body">
+                                                <div>
+                                                	{{if (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.Invitees_invitee_responded_on))}}
+	                                                    <span class="right">
+	                                                            <a href="/privilege/banish/{{TemplateFunctionEncryptIdForUrl (index $item $.KeysForIteration.Invitees_id)}}" id="trigger-banish-invitee" class="btn-icon-round danger tooltipped" data-position="top" data-tooltip="Remove user">
+	                                                                <i class="material-icons">delete_outline</i>
+	                                                            </a>
+	                                                    </span>
+                                                    {{end}}
+                                                    <h6 class="heading-bold">{{TemplateFunctionTranslate "message_invite_user_invited_by"}} {{index $item $.KeysForIteration.User_first_name}} {{index $item $.KeysForIteration.User_last_name}}
+                                                    	{{TemplateFunctionTranslate "message_invite_user_invited_on"}} {{TemplateFunctionLocalizeDateTime (index $item $.KeysForIteration.Invitees_crdate)}}
+                                                    </h6>
+                                                    <div class="m-t-10">
+                                                        {{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.Invitees_invitee_responded_on))}}
+                                                        	<hr class="">
+                                                            <p class=""><i class="material-icons small orange-text text-lighten-2">event</i> {{TemplateFunctionTranslateFormat "message_invite_user_responded_on" (TemplateFunctionLocalizeDateTime (index $item $.KeysForIteration.Invitees_invitee_responded_on))}}</p>
+                                                            <p class="small grey-text m-t-5 m-l-20">{{TemplateFunctionTranslate "message_invite_user_not_deleteable"}}</p>
+                                                        {{else}}
+                                                            <i class="material-icons">access_time</i> {{TemplateFunctionTranslate "message_invite_user_response_pending"}}
+                                                        {{end}}
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                            
+                                        </li>
+                                    {{end}}
+                                </ul>
+                            {{else}}
+                                <div class="general-info-container">
+                                    {{TemplateFunctionTranslate "message_listEmpty"}}
+                                </div>
+                            {{end}}
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+		</div>
+    </div>
+</main>
+{{end}}

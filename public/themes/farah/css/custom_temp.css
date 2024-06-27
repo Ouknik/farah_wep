@@ -1,0 +1,42 @@
+.underline {
+  
+ 
+    text-decoration-color: #d81b60;
+    text-decoration: underline;
+    margin-bottom: 0;
+    
+  }
+
+  .bordered-card {
+  
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .container-table-bg {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px 0 rgba(109, 110, 111, 0.08);
+  }
+  
+  .menitem-container {
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+  }
+
+  .container_menu {
+    height: 25.px;
+  }  
+
+  .container-Filter-view {
+    display: inline-block;
+    
+   
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    width: 340px;
+    
+  }

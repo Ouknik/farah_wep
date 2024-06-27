@@ -1,0 +1,40 @@
+::import{"partials/logo_header", "partials/top_nav_user_menu"}endimport
+
+{{define "top-nav"}}
+
+<header class="top-nav-header" style="margin-bottom:60px">
+
+	
+	
+		<nav>
+			<div class="nav-wrapper">
+				<a href="/" class="">{{template "logo-header" .}}</a>
+				<a href="#" data-target="mobile-menu" class="right sidenav-trigger"><i class="material-icons">menu</i></a>
+				<div class="top-nav-user-menu">
+					{{template "top-nav-user-menu" .}}
+				</div>
+				<ul class="right hide-on-med-and-down">
+    				<li><a href="/">{{TemplateFunctionTranslate "top_nav_orders"}}</a></li>
+    				<li><a href="/restaurant/manage">{{TemplateFunctionTranslate "top_nav_my_resturent"}}</a></li>
+					<li><a href="/reusables/manage">{{TemplateFunctionTranslate "top_nav_my_reusable"}}</a></li>
+					<li><a href="/user/delevery/manage">{{TemplateFunctionTranslate "top_nav_delivery_agine"}}</a></li>
+    				<li><a href="/highlights/manage">{{TemplateFunctionTranslate "top_nav_highlights"}}</a></li>
+    				<li><a href="/menuitem/manage">{{TemplateFunctionTranslate "top_nav_menuitem"}}</a></li>
+					<li><a href="/restaurant/salesoverview/manage">{{TemplateFunctionTranslate "top_nav_sales_overview"}}</a></li>
+				</ul>
+			</div>
+		</nav>
+	
+
+	<ul class="sidenav" id="mobile-menu">
+		           <li><a href="/">{{TemplateFunctionTranslate "top_nav_orders"}}</a></li>
+    				<li><a href="/restaurant/manage">{{TemplateFunctionTranslate "top_nav_my_resturent"}}</a></li>
+					<li><a href="/reusables/manage">{{TemplateFunctionTranslate "top_nav_my_reusable"}}</a></li>
+					<li><a href="/user/delevery/manage">{{TemplateFunctionTranslate "top_nav_delivery_agine"}}</a></li>
+    				<li><a href="/highlights/manage">{{TemplateFunctionTranslate "top_nav_highlights"}}</a></li>
+    				<li><a href="/menuitem/manage">{{TemplateFunctionTranslate "top_nav_menuitem"}}</a></li>
+					<li><a href="/restaurant/salesoverview/manage">{{TemplateFunctionTranslate "top_nav_sales_overview"}}</a></li>
+	</ul>
+
+</header>
+{{end}}

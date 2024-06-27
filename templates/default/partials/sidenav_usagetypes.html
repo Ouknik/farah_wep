@@ -1,0 +1,144 @@
+
+{{define "sidenav_usagetypes"}}
+{{$IsActive := false}}
+{{$IsScenarioActive := false}}
+
+<div>
+	{{.ControllerDetails.Action}}
+	<ul id="nav-mobile" class="sidenav sidenav-fixed">
+		<li class="">
+			<ul class="collapsible collapsible-accordion">
+				<li {{if eq (.ControllerDetails.Action) "manageproject"}} class="active"{{end}}><a class="collapsible-header waves-effect waves-blue">Übergeordnete Ausgangsdaten</a>
+					<div class="collapsible-body"
+					{{if (eq .ControllerDetails.Action "manageproject") }}style="display:block;"{{end}}
+					>
+						<ul>
+							<li
+							{{if and (eq .ControllerDetails.Controller "superiorvalues") (eq .ControllerDetails.Action "manageproject")}}class="focused"{{end}}
+							>
+								<a href="/superiorvalues/manageproject/{{$.ProjectId}}"
+									class="tooltipped"
+									data-tooltip="Nettoanfangsrenditen, Nutzungsdauer, BeWiKo"
+								>
+									NAR, ND, BeWiko
+								</a>
+							</li>
+							<li
+								{{if and (eq .ControllerDetails.Controller "timelineassumptions") (eq .ControllerDetails.Action "manageproject")}}class="focused"{{end}}
+								>
+								<a href="/timelineassumptions/manageproject/{{$.ProjectId}}"
+									class="tooltipped"
+									data-tooltip="Zeitplan für das Projekt und Annahmen für die WR"
+								>
+									Zeitplan
+								</a>
+							</li>
+							<li
+								{{if and (eq .ControllerDetails.Controller "generalcharacteristics") (eq .ControllerDetails.Action "manageproject")}}class="focused"{{end}}
+								>
+								<a href="/generalcharacteristics/manageproject/{{$.ProjectId}}"
+									class="tooltipped"
+									data-tooltip="Kosten Kennwerte für das Projekt und Annahmen für die WR"
+								>
+									Kosten Kennwerte
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</li>
+		{{if .Usagetypes}}
+		{{range $index, $item := .Usagetypes}}
+		{{if and (eq $.ControllerDetails.Action "manageusagetype") (eq $.UsagetypeId (index $item $.KeysForIteration.Usagetype_id))}}
+			{{$IsActive = true}}
+		{{end}}
+		{{if and (eq $.ControllerDetails.Controller "scenarios") (eq $.UsagetypeId (index $item $.KeysForIteration.Usagetype_id))}}
+			{{$IsActive = true}}
+		{{end}}
+
+		<li class="">
+			<ul class="collapsible collapsible-accordion">
+				<li  {{if $IsActive}}class="active"{{end}}>
+					<a class="collapsible-header waves-effect waves-blue">
+						{{index $item $.KeysForIteration.Usagetype_name}}
+					</a>
+					<div class="collapsible-body" {{if $IsActive}}style="display:block"{{end}}>
+						<ul>
+							<li {{if and (eq $.ControllerDetails.Controller "superiorvalues") ($IsActive)}}class="focused"{{end}}>
+								<a href="/superiorvalues/manageusagetype/{{index $item $.KeysForIteration.Usagetype_id}}"
+									class="tooltipped"
+									data-tooltip="Nettoanfangsrenditen, Nutzungsdauer, BeWiKo"
+								>
+									NAR, ND, BeWiko
+								</a>
+							</li>
+							<li {{if and (eq $.ControllerDetails.Controller "timelineassumptions") ($IsActive)}}class="focused"{{end}}>
+								<a href="/timelineassumptions/manageusagetype/{{index $item $.KeysForIteration.Usagetype_id}}"
+									class="tooltipped"
+									data-tooltip="Zeitplan für das Projekt und Annahmen für die WR"
+								>
+									Zeitplan
+								</a>
+							</li>
+							<li {{if and (eq $.ControllerDetails.Controller "generalcharacteristics") ($IsActive)}}class="focused"{{end}}>
+								<a href="/generalcharacteristics/manageusagetype/{{index $item $.KeysForIteration.Usagetype_id}}"
+									class="tooltipped"
+									data-tooltip="Kosten und Kennwerte für das Projekt und Annahmen für die WR"
+								>
+									Kosten und Kennwerte
+								</a>
+							</li>
+							<li {{if and (eq $.ControllerDetails.Controller "revenues") ($IsActive)}}class="focused"{{end}}>
+								<a href="/revenues/manageusagetype/{{index $item $.KeysForIteration.Usagetype_id}}"
+									class="tooltipped"
+									data-tooltip="Erlöse"
+								>
+									Erlöse
+								</a>
+							</li>
+
+
+							<li class="">
+								<ul class="collapsible collapsible-accordion">
+									<li class="sidenav-scenarios {{if $IsScenarioActive}}active{{end}}"><a class="collapsible-header waves-effect waves-light-blue">Scenarien</a>
+										<div class="collapsible-body"
+										{{if $IsActive }}style="display:block;"{{end}}
+										>
+											<ul>
+												<li 
+												class="{{if and (eq $.ControllerDetails.Action "manageinhouse") (eq $.UsagetypeId (index $item $.KeysForIteration.Usagetype_id))}}focused{{end}}"
+												>
+													<a href="/scenarios/manageinhouse/{{index $item $.KeysForIteration.Usagetype_id}}"
+														class="tooltipped"
+														data-tooltip="Szenario Eigenentwicklung"
+													>
+														Eigenentwicklung
+													</a>
+												</li>
+												<li 
+												class="{{if and (eq $.ControllerDetails.Action "manageinvestor") (eq $.UsagetypeId (index $item $.KeysForIteration.Usagetype_id))}}focused{{end}}"
+												>
+													<a href="/scenarios/manageinvestor/{{index $item $.KeysForIteration.Usagetype_id}}"
+														class="tooltipped"
+														data-tooltip="Szenario Investor"
+													>
+														Investor
+													</a>
+												</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</li>
+		{{$IsActive = false}}
+		{{end}}
+		{{end}}
+	</ul>
+</div>
+{{end}}

@@ -1,0 +1,18 @@
+::import{"partials/top_nav"}endimport
+
+{{define "content"}}
+
+{{template "top-nav" .}}
+
+<div class="row m-t-100 m-b-100" id="">
+	<div class="col s12 m10 l8 col-horizontal-center">
+		<div class=" center">
+		    <h2 class="heading-main">{{.ThankyouWithFirstName}}</h2>
+		    <div class=""><i class="material-icons large green-text text-lighten-1">check_circle</i></div>
+		    <div class="m-t-30">{{TemplateFunctionTranslate "message_registration_completed"}}</div>
+		</div>
+	    <p class="center m-t-30">{{TemplateFunctionTranslate "message_contactUs"}}</a></p>
+	</div>
+</div>
+
+{{end}}

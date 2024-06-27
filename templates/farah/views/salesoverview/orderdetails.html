@@ -1,0 +1,105 @@
+
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+<main class="m-b-50">
+    <div class="content-wrapper-before weusable-pink"></div>
+    
+    <div class="row">
+        <div class="col s12 l10 col-horizontal-center">
+        <div class="container-table-bg">     
+            <div class="row">
+                <div class="col s6">
+                    <p class="heading-main">{{TemplateFunctionTranslate "label_order_username"}} : {{ $.user.First_name}} {{ $.user.Last_name}} </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="heading-main">{{TemplateFunctionTranslate "form_label_mobile_number"}}: {{index $.Order $.KeysForIteration.Order_mobile_phone}} </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="heading-main">{{TemplateFunctionTranslate "form_label_email"}} : {{if not (TemplateFunctionIsNullOrEmpty ($.user.Email))}} $.user.Email {{else}} - {{end}} </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="heading-main">{{TemplateFunctionTranslate "message_crdate"}} : {{TemplateFunctionLocalizeDateTime (index $.Order $.KeysForIteration.Order_crdate)}}</p>
+                </div>                             
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="heading-main">{{TemplateFunctionTranslate "label_order_status"}}: {{if eq $.Order.zsord_status "1"}}Progress{{else if eq $.Order.zsord_status "0"}}Delete{{else}}Delivered{{end}}</p>
+                </div>
+            </div>
+            
+            
+         
+            <div class="row m-t-30">
+
+                <div class="col s12">
+
+                    
+                    
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>{{TemplateFunctionTranslate "form_label_menuitem"}}</th>
+                              <th class="right-align">{{TemplateFunctionTranslate "label_order_amount"}}</th>
+                             
+                          </tr>
+                        </thead>
+                        
+                    
+                        <tbody>
+                            <tr>
+                            {{range $index, $item := .Orderitem}}
+                          <tr>
+                           
+                                <td>{{index $item $.KeysForIteration.Orderitemextra_extras_item_name}}</td>
+                               
+                                
+                            <td class="right-align">
+                                {{if eq (index $item $.KeysForIteration.Orderitem_price) "0"}}
+                                Free
+                                {{else}}
+                                {{index $item $.KeysForIteration.Orderitem_price}} €
+                                {{end}}
+
+                            </td>
+                          </tr>
+                        {{end}}
+                        
+                        
+                        <td>
+                            {{TemplateFunctionTranslate "Total"}}
+                        </td>
+                           
+                            <td class="right-align">
+                                {{.PriceTotal}} €
+                                
+                               
+                            </td>
+                        
+                            </tr>
+                    </tr>
+                        </tbody>
+                      </table>
+                  
+                </div>
+            </div>
+
+        </div>
+		</div>
+    </div>
+    
+
+</main>
+{{end}}
+
+

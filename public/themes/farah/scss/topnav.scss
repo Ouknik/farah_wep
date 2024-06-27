@@ -1,0 +1,45 @@
+
+// ###### TOP NAV ####### //
+
+
+$navHeight : 60px;
+$navBorderHeight : 2px;
+$thumbnailSize : 40px;
+
+nav {
+	background-color: #fff;
+	width: 100%;
+}
+
+nav ul a {
+	color: color('theme-link-colors', 'topnav-links');
+	font-family: $font-primary-bold;
+}
+
+nav ul a:hover {
+	color: color('theme-link-colors', 'topnav-links-hover');
+	background-color: transparent;
+	font-family: $font-primary-bold;
+}
+
+.nav-wrapper {
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+
+img.logo {
+	vertical-align: middle;
+	height: 40px;
+}
+
+.sidenav-trigger {
+	color: color('theme-link-colors', 'base');
+}
+
+.top-nav-user-menu {
+	display: inline;
+}
+.top-nav-user-menu i {
+	color: color('theme-base-colors', 'pink');
+}

@@ -1,0 +1,154 @@
+var _instanceSweetalert = new sweetalert();
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+::setLocalJSForFooter{"js/lightbox.js","js/reusableqrcode.js"}endsetLocalJSForFooter
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+
+
+<main class="m-b-50">
+
+<div class="content-wrapper-before weusable-pink"></div>
+
+<div class="row">
+
+               
+  
+  <div class="col s12 l10 col-horizontal-center">
+
+    <div class="row">
+    
+    <div class="col s6">
+      <h2 class="heading-main left-align mt-5">{{TemplateFunctionTranslate "page_heading_manage_qr_code"}}</h2>
+    </div>
+    </div>
+
+
+    <div class="row m-t-30">
+      <div class="col s12">
+     <div class="container-table-bg">
+
+      <div class="row">
+        {{range $index, $item := .ReusablesQrCode}}
+      
+        {{if eq $index 0}} 
+      <div class="card horizontal z-depth-0">
+        <div class="card-image">
+          {{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.Reusable_reusable_image))}}
+          <img class="lightbox"
+            
+            data-large="{{$.EnvConfVars.fileServeCDNUrl}}{{$.EnvConfVars.reusablesImgCDNPath_large}}/{{index $item $.KeysForIteration.Reusable_reusable_image}}"
+            data-thumbnail="{{$.EnvConfVars.fileServeCDNUrl}}{{$.EnvConfVars.reusablesImgCDNPath_thumbnails}}/{{index $item $.KeysForIteration.Reusable_reusable_image}}"
+            data-name="{{$.EnvConfVars.fileServeCDNUrl}}{{index $item $.KeysForIteration.Reusable_reusable_image}}"
+            data-type="reusable"
+            src="{{$.EnvConfVars.fileServeCDNUrl}}{{$.EnvConfVars.reusablesImgCDNPath_thumbnails}}/{{index $item $.KeysForIteration.Reusable_reusable_image}}">
+     {{else}}
+     <p class="center m-t-20"><i class="material-icons large grey-text text-lighten-3 center">camera_alt</i></p>
+     {{end}}
+        </div>
+          <div class="card-content">
+            <p>
+             {{TemplateFunctionTranslate "form_label_reusables_name"}} :  {{index $item $.KeysForIteration.Reusable_name}}
+            </p>
+            <p>
+             {{TemplateFunctionTranslate "form_label_reusables_totalQrCode"}} :  {{$.TotalQrCode}}
+            </p>
+            <p>
+              {{TemplateFunctionTranslate "form_label_reusables_totalQrCodeLost"}} : {{$.TotalQrCodeLost}}
+            </p>
+            <p>
+              {{TemplateFunctionTranslate "form_label_reusables_totalQrCodeDelete"}} : {{$.TotalQrCodeDelete}}
+             </p>
+             <p>
+              {{TemplateFunctionTranslate "form_label_reusables_date_Crdate"}} :{{TemplateFunctionLocalizeDateTime (index $item $.KeysForIteration.Reusable_crdate)}} 
+             </p>
+
+             <a  href="/reusables/dowloadqrcodes/{{index $item $.KeysForIteration.Reusable_id}}"
+             class="btn-icon-round danger tooltipped" data-position="top" 
+             data-tooltip="{{TemplateFunctionTranslate "tooltipp_reusable_download_qrCode"}}">
+             <i  class="material-icons">file_download</i>
+           </a>
+          </div>
+
+         
+      </div>
+   
+  
+  {{end}}
+  {{end}}
+      </div>
+
+
+    <table class="responsive-table">
+        <thead>
+          
+          <tr >
+            <th ></th>
+           
+          </tr>
+        </thead>
+        {{range $index, $item := .ReusablesQrCode}}
+      <tr >
+          <td> 
+            <img 
+            
+            src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{index $item $.KeysForIteration.Reusablesqrc_id}}" 
+            alt="QR Code">
+          </td>
+
+
+          <td class="right-align">
+            <div class="m-r-20">
+              
+            {{if eq  (index $item $.KeysForIteration.Reusablesqrc_is_deleted) "1"}}
+            
+
+            <a  href="/reusables/qrcode/delete/{{index $item $.KeysForIteration.Reusablesqrc_id}}"
+            class="btn-icon-round danger tooltipped" data-position="top" 
+            data-tooltip="{{TemplateFunctionTranslate "tooltipp_reusable_delete_On"}} {{TemplateFunctionLocalizeDateTime (index $item $.KeysForIteration.Reusablesqrc_deleted_on)}}">
+            <i  class="material-icons">delete</i>
+          </a>
+            {{else}}
+           
+            
+               <a  href="/reusables/qrcode/delete/{{index $item $.KeysForIteration.Reusablesqrc_id}}"
+                 class="btn-icon-round danger tooltipped" data-position="top" data-tooltip="{{TemplateFunctionTranslate "tooltipp_reusable_delete"}}">
+                 <i  class="material-icons">delete</i>
+               </a>
+           
+         
+            {{end}}
+
+              
+              <a href="/reusables/qrcode/history/{{index $item $.KeysForIteration.Reusablesqrc_id}}"
+              class="btn-icon-round tooltipped " data-position="top" data-tooltip="{{TemplateFunctionTranslate "tooltipp_reusable_history"}}">
+                 <i class="material-icons">history</i>
+              </a>  
+             
+           
+            </div>
+        </td >
+       
+          
+        </tr>
+        {{end}}
+        </tbody>
+      </table>
+     </div>
+    </div>
+  </div>
+
+   </div>
+  
+</div>
+		
+  
+</main>
+{{end}}
+
+
+
+
+

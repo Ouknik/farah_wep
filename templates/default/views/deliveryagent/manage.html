@@ -1,0 +1,84 @@
+var _instanceSweetalert = new sweetalert();
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+::setLocalJSForFooter{"js/userDeleveryBlocked.js"}endsetLocalJSForFooter
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+<main class="m-b-50">
+    <div class="row">
+        <div class="col s12 l10 col-horizontal-center">
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="heading-main">{{TemplateFunctionTranslate "page_heading_manage_user_delevery"}}</h2>
+                </div>
+            </div>
+
+                     
+            
+            <div class="row m-t-5">
+                <div class="col s12 right-align">
+                    <a href="/user/delevery/add" class="btn">{{TemplateFunctionTranslate "form_caption_user_delevery_add"}}</a>
+                </div>
+            </div>
+
+            <div class="row m-t-30">
+
+                <div class="col s12">
+
+                    
+                    
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>first Name</th>
+                              <th>last Name</th>
+                              <th>mobile phone</th>
+                              <th>stute</th>
+                          </tr>
+                        </thead>
+                
+                        
+                         
+                        {{range $index, $item := .UserDelevery}}
+                        <tr>
+                          <td> {{index $item $.KeysForIteration.UserDelevery_first_name}}</td>
+                          <td>{{index $item $.KeysForIteration.UserDelevery_last_name}}</td>
+                          <td>{{index $item $.KeysForIteration.UserDelevery_mobile_number}}</td>
+                          <td>
+                            <!-- Switch -->
+                         
+                            
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  {{if eq  (index $item $.KeysForIteration.UserDelevery_blocked) "0"}}
+                                  blocked
+                                    <input id="switch-blocked" type="checkbox" checked onclick="blockedUserDelevery({{index $item $.KeysForIteration.UserDelevery_id}})">
+                                  {{else}}
+                                  blocked
+                                    <input type="checkbox" onclick="blockedUserDelevery({{index $item $.KeysForIteration.UserDelevery_id}})" >
+                                  {{end}}
+                                  <span  class="lever"></span>
+                               
+                                  active
+                                
+                                </label>
+                              </div>
+                          </td>
+                        </tr>
+                        {{end}}
+
+
+                        </tbody>
+                      </table>
+                  
+                </div>
+            </div>
+		</div>
+    </div>
+</main>
+{{end}}
+
+

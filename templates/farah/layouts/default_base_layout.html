@@ -1,0 +1,19 @@
+::import{"partials/headerCSS", "partials/headerJS", "partials/global_footer", "partials/footerJS", "layouts/header", "layouts/footer"}endimport
+
+{{define "base_layout"}}
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+		{{template "header" .}}
+    </head>
+    
+    <body>
+
+{{template "content" .}}
+{{template "footer" .}}
+
+	</body>
+</html>
+{{end}}

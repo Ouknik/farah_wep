@@ -1,0 +1,42 @@
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/global_footer", "partials/asideNavMenu"}endimport
+
+{{define "content"}}
+
+{{template "top-nav" .}}
+{{template "slidenav-trigger-bar"}}
+
+
+{{template "sideNavForSmallScreens" .}}
+
+<main>
+	<div class="row" id="">
+		
+		{{template "sideNavForLargeScreens" .}}
+
+		<div class="col s12 xl10 two-col-layout-col-2">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="col s12">
+                            <h2 class="heading-main">{{TemplateFunctionTranslate "welcome"}}</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l5 xl4">
+							<p class="">
+								One common flaw we've seen in many frameworks is a lack of support for truly responsive text. While elements on the page resize fluidly, text still resizes on a fixed basis. To ameliorate this problem, for text heavy pages, we've created a class that fluidly scales text size and line-height to optimize readability for the user. Line length stays between 45-80 characters and line height scales to be larger on smaller screens.
+							</p>
+							<p>
+								To see Flow Text in action, slowly resize your browser and watch the size of this text body change! Use the button above to toggle off/on flow-text to see the difference!
+							</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</main>
+{{template "global-footer"}}
+
+
+{{end}}

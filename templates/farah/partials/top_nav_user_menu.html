@@ -1,0 +1,54 @@
+
+{{define "top-nav-user-menu"}}
+
+<div class="top-nav-user-menu right">
+	<div class="top-nav-user-menu-container">
+		{{if .UserDetails.Id }}
+			<a class="top-nav-user-menu-trigger box-menu-item" href="#" data-target="top-nav-user-menu-dropdown">
+				{{if (ne .UserDetails.Avatar "")}}
+				
+				<img
+				onerror="handleMissingImages(this)"
+				id="profile-img-{{.UserDetails.Id}}" 
+				alt="{{.UserDetails.First_name}}"
+				data-name="{{.UserDetails.Avatar}}"
+				data-type="profilePic"
+				data-id="profile-img-{{.UserDetails.Id}}"
+				class="z-depth-2"
+				style="width: 25px; height: 25px; vertical-align: middle;"
+				src="{{$.EnvConfVars.fileServeCDNUrl}}{{$.EnvConfVars.profilePicCDNPath_thumbnails}}/{{.UserDetails.Avatar}}">
+				{{else}}
+				<i class="material-icons" style="font-size: 25px; vertical-align: middle;">account_circle</i>
+				{{end}}
+			</a>
+			<!-- dropdown-->
+			<div id="top-nav-user-menu-dropdown"  class="dropdown-content top-nav-user-menu-dropdown-container">
+				<div class="m-10 grey-text text-darken-1">
+					<div class="center">
+						<p class="strong truncate m-t-5 m-b-5">{{.UserDetails.First_name}} {{.UserDetails.Last_name}}</p>
+						<p class="small truncate">{{.UserDetails.Email}}</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				{{if (eq .UserDetails.Avatar "1")}}
+				<p class="divider"></p>
+				<ul>
+					<li><a class="grey-text text-darken-1" href="/user/register">{{TemplateFunctionTranslate "menu_add_user"}}</a></li>
+				</ul>
+				{{end}}
+				<p class="divider"></p>
+				<ul>
+					<li><a class="grey-text text-darken-1" href="/user/accountsettings">{{TemplateFunctionTranslate "menu_account_settings"}}</a></li>
+					<li><a class="grey-text text-darken-1" href="/user/changepassword">{{TemplateFunctionTranslate "menu_change_password"}}</a></li>
+					<li class="divider"></li>
+					<li><a class="grey-text text-darken-1" href="faq">Hilfe</a></li>
+					<li><a class="grey-text text-darken-1" href="/user/logout"><i class="material-icons">logout</i> {{TemplateFunctionTranslate "menu_sign_out"}}</a></li>
+				</ul>
+			</div>
+		{{else}}
+			<a href="/user/login">Sign In</a>
+		{{end}}
+	</div>
+	
+</div>
+{{end}}

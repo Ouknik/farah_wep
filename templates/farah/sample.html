@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Materialize Example</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<style media="screen">
+		.content-wrapper-before {
+			position: absolute;
+			z-index: -1;
+			top: 64px;
+			left: 0;
+			width: 100%;
+			height: 200px;
+			-webkit-transition: .3s ease all;
+			transition: .3s ease all;
+		}
+		.weusable-pink {
+			background:  #ED5A91;
+		}
+		.content {
+			margin-top:20px;
+			display: grid;
+		}
+	</style>
+</head>
+<body>
+	<div class="navbar-fixed">
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#!" class="brand-logo">Logo</a>
+				<a href="#" data-target="mobile-menu" class="right sidenav-trigger"><i class="material-icons">menu</i></a>
+				<ul class="right hide-on-med-and-down">
+    				<li><a href="/">Bestellungen</a></li>
+    				<li><a href="/restaurant/manage">Mein Restaurant</a></li>
+					<li><a href="/reusable/manage">Mein Reusable</a></li>
+					<li><a href="/user/delevery/manage">Delivery agine</a></li>
+    				<li><a href="/highlights/manage">Highlights</a></li>
+    				<li><a href="/menuitem/manage">Produkte verwalten</a></li>
+				</ul>
+				<div class="top-nav">
+					{{template "top-nav-user-menu" .}}
+				</div>
+			</div>
+		</nav>
+	</div>
+	<ul class="sidenav" id="mobile-menu">
+		<li><a href="#">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Services</a></li>
+		<li><a href="#">Contact</a></li>
+	</ul>
+
+	<section id="main">
+		<div class="content-wrapper-before weusable-pink"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m8 offset-m2">
+					<section class="content">
+						<h1>Welcome to Materialize!</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat justo nec tortor rutrum, a dapibus massa tincidunt.</p>
+						<a class="waves-effect waves-light btn">Get Started</a>
+					</section>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="page-footer blue subprimarycolor">
+		<div class="container">
+			<div class="row primarycolor">
+				<div class="col s12" >
+					<p class="grey-text text-lighten-4">© 2023 Materialize CSS. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script type="text/javascript" src="../public/themes/farah/js/common.js"></script>
+</body>
+</html>

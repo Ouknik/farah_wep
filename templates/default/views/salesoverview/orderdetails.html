@@ -1,0 +1,100 @@
+
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+<main class="m-b-50">
+    <div class="row">
+        <div class="col s12 l10 col-horizontal-center">
+            
+            <div class="row">
+                <div class="col s6">
+                    <p class="heading-main">UserName : {{ $.user.First_name}} {{ $.user.Last_name}} </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="heading-main">Mobile phone: {{index $.Order $.KeysForIteration.Order_mobile_phone}} </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="heading-main">Email : {{ $.user.Email}} </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="heading-main">date : {{index $.Order $.KeysForIteration.Order_crdate}}</p>
+                </div>                             
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="heading-main">Status: {{if eq $.Order.zsord_status "1"}}Progress{{else if eq $.Order.zsord_status "0"}}Delete{{else}}Delivered{{end}}</p>
+                </div>
+            </div>
+            
+            
+         
+            <div class="row m-t-30">
+
+                <div class="col s12">
+
+                    
+                    
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>Minue Item</th>
+                              <th>amount</th>
+                             
+                          </tr>
+                        </thead>
+                        
+                    
+                        <tbody>
+                            <tr>
+                            {{range $index, $item := .Orderitem}}
+                          <tr>
+                           
+                                <td>{{index $item $.KeysForIteration.Orderitemextra_extras_item_name}}</td>
+                               
+                                
+                            <td>
+                                {{if eq (index $item $.KeysForIteration.Orderitem_price) "0"}}
+                                Free
+                                {{else}}
+
+                                TemplateFunctionNumberToGermanFormat ({{index $item $.KeysForIteration.Orderitem_price}})$
+
+                                {{end}}
+
+                            </td>
+                          </tr>
+                        {{end}}
+                        
+                        
+                        <td>
+                            <td>
+                                Total
+                            </td>
+                            <td>
+                                {{$.Order.zsord_amount}}
+                               
+                            </td>
+                        </td>
+                            </tr>
+                    </tr>
+                        </tbody>
+                      </table>
+                  
+                </div>
+            </div>
+		</div>
+    </div>
+</main>
+{{end}}
+
+

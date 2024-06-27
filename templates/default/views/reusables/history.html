@@ -1,0 +1,55 @@
+var _instanceSweetalert = new sweetalert();
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+::setLocalJSForFooter{"js/reusableGeneratedQrCode.js"}endsetLocalJSForFooter
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+<main class="m-b-50">
+
+
+    
+
+
+
+
+
+
+    <div class="row m-t-30">
+
+        <div class="col s12">
+
+          
+          
+            <table>
+                <thead>
+                  <tr>
+                      <th>User</th>
+                      <th>Delivery agent</th>
+                      <th>Assigned on</th>
+                      <th>Returned on</th>
+                  </tr>
+                </thead>
+                {{range $index, $item := .ReusablesTraking}}
+               <tr>
+                <td>{{index $item $.KeysForIteration.User_first_name}} {{index $item $.KeysForIteration.User_last_name}}</td>
+                <td>{{index $item $.KeysForIteration.UserDelevery_first_name}} {{index $item $.KeysForIteration.UserDelevery_last_name}}</td>
+                <td>{{index $item $.KeysForIteration.ReusableTraking_assigned_on}}</td>
+                <td>{{index $item $.KeysForIteration.ReusableTraking_returned_on}}</td>
+                
+                </tr>
+                {{end}}
+                </tbody>
+              </table>
+          
+        </div>
+    </div>
+</div>
+</div>
+</main>
+{{end}}
+
+
+
+

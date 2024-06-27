@@ -1,0 +1,187 @@
+
+// ###### TOP NAV ####### //
+
+
+$navHeight : 60px;
+$navBorderHeight : 2px;
+$thumbnailSize : 40px;
+
+$dropDownPosition : $navHeight + $navBorderHeight;
+
+
+.top-nav {
+    width: 100%;
+    height: $navHeight;
+    //margin-bottom: 30px !important;
+    padding:0;
+}
+
+
+.top-nav-header {
+	@extend .white;
+	@extend .sticky;
+	top: 0;
+	z-index: 9999;
+}
+
+.top-nav-border-color {
+    width: 100%;
+    height: $navBorderHeight;
+    background: color('theme-grey', 'light');
+}
+
+
+
+.top-nav-user-menu {
+	height: 100%;
+	line-height: $navHeight;
+	padding-right: 20px;
+}
+.top-nav-user-menu a{
+	height: $navHeight;
+	color: color('theme-link-colors', 'topnav-links');
+	display: inline-block;
+}
+.top-nav-user-menu a:hover{
+	color: color('theme-link-colors', 'topnav-links-hover');
+}
+
+.top-nav-user-menu-trigger {
+	width: $navHeight;
+	height: $navHeight;
+	line-height: $navHeight;
+	display: inline-block;
+
+	transition: background-color 0.3s ease;
+
+	transition: color 0.5s ease;
+	text-align: center;
+	color: color('theme-grey', 'light') !important;
+}
+
+.top-nav-user-menu-trigger i{
+	vertical-align: middle;
+	font-size: 250%;
+	margin-top: 10px;
+}
+
+.top-nav-user-menu-trigger img {
+	vertical-align: middle;
+	width: $thumbnailSize;
+	height: $thumbnailSize;
+	border-radius: 50%;
+	border: 1px solid #fff;
+}
+
+a:hover.top-nav-user-menu-trigger {
+
+	color: #fff !important;
+
+	background: color('theme-grey', 'background');
+	background: $color-primary-red;
+	// shadow
+	-webkit-box-shadow: 0 2px 5px 0 rgba(232,0,90,.8) !important;
+	        box-shadow: 0 2px 5px 0 rgba(232,0,90,.8) !important;
+	background: rgba(232,0,90,.8);
+	border-radius: 50%;
+}
+
+
+.top-nav-user-menu-dropdown-container {
+	top: $dropDownPosition !important;
+	min-width: 250px;
+}
+
+.top-nav-user-menu-dropdown-container a:hover {
+	background-color: color('theme-link-colors', 'topnav-links-hover-background');
+}
+
+.top-nav-user-menu-dropdown-container .avatar-thumbnail {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 10px;
+}
+
+// .top-nav-user-menu-dropdown-container .avatar-thumbnail img {
+// 	width: 50px;
+// 	height: 50px;
+// }
+
+.top-nav-user-menu-dropdown-container .avatar-icon i {
+	font-size: 50px;
+	margin-right: 10px;
+}
+
+.logo-container {
+	width: 100%;
+}
+
+.logo {
+	line-height: $navHeight;
+}
+
+.logo img {
+	vertical-align: middle;
+	height: 40px;
+}
+
+.logo .logo-text {
+	color: #ffffff;
+	
+  }
+  
+.logo-text:first-child {
+	color: #000000; 
+	font-size: 26px;
+	font-weight: bold;
+  }
+  
+    .logo-text:nth-child(n+3) {
+	color: #444444; 
+	font-size: 15px;
+	font-weight: normal;
+  }
+
+.logo a {
+	color: color("theme-base-colors", "blue") !important;
+}
+
+.top-nav-left {
+	height: $navHeight !important;
+	float: left;
+}
+
+.top-nav-left ul {
+	margin: 0;
+	padding: 0;
+}
+
+.top-nav-left li {
+	margin: 10px 0;
+	padding: 0;
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+}
+
+
+.top-nav-left a {
+	display: block;
+	padding: 0 10px 0 10px;
+	color: color("theme-link-colors", "base");
+	font-weight: bold;
+
+	
+	-webkit-transition: background-color 300ms linear;
+    -ms-transition: background-color 300ms linear;
+    transition: background-color 300ms linear;
+}
+
+.top-nav-left a:hover {
+	color: color("blue", "darken-4");
+	background-color: color("light-blue", "lighten-4");
+	border-radius: $radius-default;
+}

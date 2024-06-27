@@ -1,0 +1,24 @@
+::import{"partials/top_nav", "partials/global_footer"}endimport
+
+{{define "content"}}
+
+{{template "top-nav" .}}
+
+<div class="row m-t-100 m-b-100" id="">
+	<div class="col s12 m8 l4 col-horizontal-center center">
+		{{if .hasError}}
+			<i class="material-icons medium orange-text">error_outline</i>
+			<h2 class="orange-text">{{TemplateFunctionTranslate "error_generalError"}}</h2>
+	        <p>{{.message}}</p>
+	    {{else}}
+	    	<h2 class="heading-main m-0 p-0">{{.message}}</h2>
+	    	<h1 class="green-text m-0 p-0"><i class="material-icons large">done</i></h1>
+	        <p class="m-0 p-0">{{TemplateFunctionTranslate "success_registrationComplete"}} <a href="/user/login">{{TemplateFunctionTranslate "message_signIn"}}</a></p>
+	    {{end}}
+	    <p class="">{{TemplateFunctionTranslate "message_contactUs"}}</p>
+	</div>
+</div>
+
+{{template "global-footer"}}
+
+{{end}}

@@ -1,0 +1,20 @@
+{{define "sidebar_profilepic"}}
+
+								<div class="form-group text-center">
+									{{if (ne .UserDetailsOfUserToEdit.Avatar "")}}
+										<div id="avatarContainer">
+											<img alt="{{.UserDetailsOfUserToEdit.First_name}}" src="{{.HeaderDetails.ThemePath}}/../profilepic_large/{{.UserDetailsOfUserToEdit.Avatar}}">
+										</div><br>
+										<button type="button" id="triggerDeleteAvatar" class="btn btn-outline-secondary">{{TemplateFunctionTranslate "form_caption_delete"}}</button>
+										<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#uploadModal">{{TemplateFunctionTranslate "form_caption_change"}}</button>
+									{{else}}
+										<div id="avatarContainer">
+											<i class="fa fa-camera-retro fa-10x" aria-hidden="true"></i>
+										</div><br>
+										<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#uploadModal">{{TemplateFunctionTranslate "form_caption_add"}}</button>
+									{{end}}
+
+									<br/>
+	                  			</div>
+
+{{end}}

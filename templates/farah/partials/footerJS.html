@@ -1,0 +1,12 @@
+{{define "footerJS" }}
+	
+
+	{{ range $jsFile := .ExternalFooterJSFileNamesToLoad }}
+    	<script src="{{$jsFile}}"></script>
+	{{ end }}
+	
+	{{ range $jsFile := .LocalFooterJSFileNamesToLoad }}
+    	<script src="{{$.HeaderDetails.ThemePath}}/{{$jsFile}}"></script>
+	{{ end }}
+
+{{end}}

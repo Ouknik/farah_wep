@@ -1,0 +1,19 @@
+{{define "footer"}}
+
+        {{template "global-footer" .}}
+
+    	<!--JavaScript at end of body for optimized loading-->
+    	<script type="text/javascript" src="{{.HeaderDetails.PublicPath}}/materialize/js/materialize.min.js"></script>
+        
+    	<!-- load custom js -->
+    	<script type="text/javascript" src="{{.HeaderDetails.ThemePath}}/js/common.js"></script>
+
+		<!-- load footer js -->
+		{{template "footerJS" .}}
+
+        {{/*}} Toast Messages if set {{*/}}
+        {{if .Toast}}
+            <script type="text/javascript">var globalToastMessage = "{{.Toast}}"</script>
+        {{end}}
+		
+{{end}}

@@ -1,0 +1,257 @@
+
+@mixin font($font-family, $font-file) {
+  @font-face {
+    font-family: $font-family;
+    src: url($font-file+'.eot');
+    src: url($font-file+'.eot?#iefix') format('embedded-opentype'),
+         url($font-file+'.ttf') format('truetype'),
+         url($font-file+'.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+
+// Roboto is default font
+// @include font('bold', '../fonts/Heebo/Heebo-Bold');
+// @include font('extrabold', '../fonts/Heebo/Heebo-ExtraBold');
+
+// @include font('regular', '../fonts/Roboto/Roboto-Regular');
+// @include font('light', '../fonts/Roboto/Roboto-Light');
+// @include font('thin', '../fonts/Roboto/Roboto-Thin');
+
+// @include font('regular', '../fonts/Poppins/Poppins-Regular');
+// @include font('light', '../fonts/Poppins/Poppins-Light');
+// @include font('thin', '../fonts/Poppins/Poppins-Thin');
+
+@include font('regular', '../fonts/monrope/Manrope-Regular');
+@include font('bold', '../fonts/monrope/Manrope-Bold');
+@include font('extrBold', '../fonts/monrope/Manrope-ExtraBold');
+@include font('extrLight', '../fonts/monrope/Manrope-ExtraLight');
+@include font('light', '../fonts/monrope/Manrope-Light');
+@include font('extraLight', '../fonts/monrope/Manrope-ExtraLight');
+@include font('medium', '../fonts/monrope/Manrope-Medium');
+@include font('semiBold', '../fonts/monrope/Manrope-SemiBold');
+
+
+
+// Default
+$font-primary: regular;
+$font-primary-light: light;
+$font-primary-bold: bold;
+
+// Default heading
+$font-heading-bold: extrabold;
+$font-heading-regular: bold;
+$font-heading-light: light;
+$font-heading-thin: light;
+
+
+$color-primary-text:  color('theme-text-colors', 'default');
+$color-primary-red:  color('theme-base-colors', 'red');
+$color-primary-blue: color('theme-base-colors', 'blue');
+// $color-body-background: #F8F9FA;
+$color-body-background: #fff;
+$color-primary-heading:  $color-primary-blue;
+
+
+
+// default border radius value
+$radius-default: 5px;
+
+$projectImageContainerSize : 150px;
+
+
+html,
+body,
+ul,
+ol {
+  margin:  0;
+  padding: 0;
+}
+
+html {
+  font-size: 0.98em;
+  font-family: $font-primary;
+  color: $color-primary-text;
+}
+
+body {
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background-color: $color-body-background;
+  overflow-x: hidden;
+
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4em;
+}
+
+
+// Make main heading bolder
+h1 ,
+h2,
+h3 ,
+h4 ,
+h5,
+h6 {
+  font-family: $font-heading-regular;
+  //letter-spacing: 2px;
+  padding:0 !important;
+  margin: 0 !important;
+}
+
+h2.heading-main {
+  //color: $color-primary-red;
+  margin-bottom: 20px !important;
+
+  font-size: 1.625rem;
+  line-height: 1.625rem;
+  color: $color-primary-heading;
+}
+p.heading-main-slogan{
+  margin-top: -10px !important;
+  margin-bottom: 25px;
+  font-size: 80%;
+  text-align: center;
+}
+
+
+a {
+  color: color("theme-link-colors", "base");
+}
+
+a:hover {
+  color: color("light-blue", "lighten-1");
+}
+
+i.material-icons {
+  vertical-align: top !important;
+}
+
+.row {
+  @extend .row;
+  margin-bottom:0;
+}
+
+// keep insignificant heading regular
+.heading-regular {
+  font-family: $font-heading-regular;
+  //font-size: 32px;
+  //line-height: 52px;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.small {
+  font-size: 90% !important;
+}
+
+.tiny-text {
+  font-size: 80% !important;
+}
+
+.sidenav-overlay {
+  background-color: rgba(14, 17, 94, .8) !important;
+}
+
+.content-wrapper-before {
+	position: absolute;
+	z-index: -1;
+	top: 64px;
+	left: 0;
+	width: 100%;
+	height: 200px;
+	-webkit-transition: .3s ease all;
+	transition: .3s ease all;
+}
+
+.weusable-pink {
+	background:  #ED5A91;
+}
+.content {
+	margin-top:20px;
+	display: grid;
+}
+
+.modal .modal-footer {
+  text-align: center;
+}
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+
+// date picker customisation
+.datepicker-date-display {
+  background-color: rgba(14, 17, 94, .8) !important;
+}
+
+.datepicker-controls .select-month input, .datepicker-controls .select-year input {
+  border: none !important;
+}
+
+.datepicker-controls .select-year input {
+  width: 50px;
+}
+
+.datepicker-controls .select-month input {
+  width: 150px;
+}
+
+.datepicker-day-button {
+  color: rgb(14, 17, 94);
+}
+
+.is-today button {
+  border-radius: $radius-default;
+  background-color: rgba(14, 17, 94, .4) !important;
+  color: #fff;
+}
+
+button.datepicker-cancel {
+  color: color("theme-base-colors", "red") !important;
+}
+
+button.datepicker-done {
+  color: color("theme-base-colors", "blue") !important;
+}
+
+.is-selected button {
+  border-radius: $radius-default;
+  background-color: rgba(14, 17, 94, .9) !important;
+  color: #fff;
+}
+
+.material-icons {
+  vertical-align: middle;
+}
+
+.breadcrumb-custom {
+  @extend .small;
+  @extend .grey-text;
+}
+/*
+.breadcrumb-custom a {
+  @extend .grey-text;
+}
+.breadcrumb-custom a:hover {
+  color: color("light-blue", "lighten-1") !important;
+}*/
+
+.pin-to-top {
+   top: 50px;
+}

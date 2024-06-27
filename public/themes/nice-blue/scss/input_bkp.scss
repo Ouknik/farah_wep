@@ -1,0 +1,52 @@
+
+.input-field {
+  border:2px solid black;
+}
+
+
+.input-field input {
+  padding-left: 10px !important;
+  border: none !important;
+}
+
+/* label color */
+.input-field label {
+  padding-left: 10px !important;
+  color: color('grey', 'darken-1');
+}
+/* label focus color */
+.input-field input:focus + label {
+  color: color('blue', 'darken-1') !important;
+}
+/* label underline focus color */
+.input-field input {
+  /*border: 1px solid color('grey', 'darken-1') !important;
+  /* box-shadow: 0 1px 0 0 color('grey', 'lighten-1') !important; */
+  border-color: color('grey', 'darken-1') !important;
+}
+/* label underline focus color */
+.input-field input:focus {
+  box-shadow: none !important; 
+  border-color: color('blue', 'darken-3') !important;
+}
+/* valid color */
+.input-field input.valid {
+  /*border: 1px solid color('grey', 'darken-1');
+  /* box-shadow: 0 1px 0 0 color('grey', 'darken-1'); */
+}
+/* invalid color */
+.input-field input.invalid {
+  /*border: 1px solid color('grey', 'darken-1');
+  /* box-shadow: 0 1px 0 0 color('grey', 'darken-1'); */
+}
+/* icon prefix focus color */
+  .input-field .prefix.active {
+  color: color('grey', 'darken-1');
+}
+
+
+/* label underline focus color */
+/*.input-field input:focus {
+  border: 1px solid $primary-blue !important;
+  box-shadow: 0 1px 0 0 $primary-blue !important
+}*/

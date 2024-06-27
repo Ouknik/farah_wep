@@ -1,0 +1,95 @@
+
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+
+
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+<main class="m-b-50">
+	<div class="content-wrapper-before weusable-pink"></div>
+
+	<div  class="container">
+		<div class="row">
+			<div class="col s12 col-horizontal-center">
+				<div class="row">
+					<div class="col s12">
+						<h2 class="heading-main lerft-align mt-5">{{TemplateFunctionTranslate "page_heading_manage_reusables"}}</h2>
+					</div>
+				</div>
+				<div class="row m-t-30">
+					<div class="col s12">
+						<div class="row">
+							<div class="flex-row">
+								<div class="col s12 m3">
+									<div class="card bordered-card">
+										<div class="card-image">
+											<img src="{{.HeaderDetails.ThemePath}}/imgs/d_informationen.png">
+										</div>
+										<div class="card-content">
+											<div class="center">
+												<h6>Informationen</h6>
+											</div>
+											<div class="center tiny-text grey-text">
+												<p>Erstellen Sie Angebote und Aktionen und Informieren Sie Ihre Gäste.</p>
+											</div>
+											<br>
+											<div class="center">
+												<a class="pink-text"><span class="underline">Informationen bearbeiten</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col s12 m3">
+									<div class="card bordered-card">
+										<div class="card-image">
+											<img src="{{.HeaderDetails.ThemePath}}/imgs/d_aktion.png">
+										</div>
+										<div class="card-content">
+											<div class="center">
+												<h6>Angebote und Aktionen</h6>
+											</div>
+											<div class="center tiny-text grey-text">
+												<p>Erstellen Sie Angebote und Aktionen und Informieren Sie Ihre Gäste.</p>
+											</div>
+											<br>
+											<div class="center">
+												<a class="pink-text"><span class="underline">Aktion erstellen</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="col s12 m3">
+									<div class="card bordered-card">
+										<div class="card-image">
+											<img src="{{.HeaderDetails.ThemePath}}/imgs/d_mitarbeiter.png">
+										</div>
+										<div class="card-content">
+											<div class="center">
+												<h6 class="">Mitarbeiterverwaltung</h6>
+											</div>
+											<div class="center tiny-text grey-text">
+												<p>Verwalten Sie lhre Mitarbeiter und Lieferpersonal.</p>
+											</div>
+											<br>
+											<div class="center">
+												<a class="pink-text"><span class="underline">Mitarbeiter Verwalten</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+
+	{{end}}

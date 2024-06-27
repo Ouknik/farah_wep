@@ -1,0 +1,98 @@
+
+// import theme colors
+@import 'theme-colors.scss';
+
+// import primary configuration
+// Default Color, Fonts, Margins and Padding
+@import 'primary-setup.scss';
+
+@import '../../../materialize/css/materialize-src/sass/components/_color-variables.scss';
+
+
+$container-height: 200px;
+
+.dropzone {
+
+    border-radius: $radius-default;
+    border: 2px dashed color("theme-input-color", "border");
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    color: color('grey', 'lighten-1');
+    transition-property: border-color, color;
+    transition-duration: 0.5s;
+}
+
+.dropzone:hover {
+    border: 2px dashed color("theme-input-color", "border-focus");
+    color: color('blue', 'lighten-1');
+}
+
+.file-upload-container {
+    position: relative;
+    //overflow: hidden;
+}
+
+.dropzone-container-background {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.dropzone-cotainer-file-upload {
+	min-height: $container-height;
+	width: 100%;
+}
+
+.dropzone-cotainer-file-upload img{
+	width: 98%;
+    height: 350px;
+    object-fit: cover;
+	margin: 5px;
+
+	border-radius: $radius-default;
+}
+
+.trigger-delete-uploaded-image:hover{
+	color: color("red", "lighten-2") !important;
+	background-color: color("grey", "lighten-4") !important;
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-20%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.slide-down {
+    /* This section calls the slideInFromTop animation we defined above */
+    animation: 0.4s ease-out 0s 1 slideInFromTop;
+}
+
+.dropzone-container-dropper, 
+.dropzone-container-dragover,
+.dropzone-container-error {
+    position: absolute;
+    top: 0;
+    height: $container-height;
+    width: 100%;
+    display: table;
+}
+.dropzone-container-dragover {
+    background-color: color('blue', 'lighten-1');
+    opacity: 0.9;
+}
+.dropzone-container-dragover-content,
+.dropzone-container-error-content {
+    display: table-cell;
+    vertical-align: middle;
+}
+.dropzone-container-error-content {
+    background-color: white;
+}
+// end dropzone customization

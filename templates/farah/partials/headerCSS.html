@@ -1,0 +1,11 @@
+{{define "headerCSS" }}
+
+	{{ range $cssFile := .ExternalCSSFileNamesToLoad }}
+		<link type="text/css" rel="stylesheet" href="{{ $cssFile }}">
+	{{ end }}
+	
+	{{ range $cssFile := .LocalCSSFileNamesToLoad }}
+		<link type="text/css" rel="stylesheet" href="{{$.HeaderDetails.ThemePath}}/{{ $cssFile }}">
+	{{ end }}
+	
+{{end}}

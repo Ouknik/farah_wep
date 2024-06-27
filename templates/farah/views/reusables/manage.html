@@ -1,0 +1,152 @@
+var _instanceSweetalert = new sweetalert();
+::setLocalJSForFooter{"js/lightbox.js", "js/reusableGeneratedQrCode.js"}endsetLocalJSForFooter
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+{{define "content"}}
+{{template "top-nav" .}}
+<main class="m-b-50">
+	<div class="content-wrapper-before weusable-pink"></div>
+	<div class="row">
+		<div class="col s12 l10 col-horizontal-center">
+			<div class="row">
+				<div class="col s6">
+					<h2 class="heading-main left-align mt-5">{{TemplateFunctionTranslate "page_heading_manage_reusables"}}</h2>
+				</div>
+				<div class="col s6 right-align mb-5">
+					<a href="/reusables/add/" class="btn">{{TemplateFunctionTranslate "form_caption_reusable_add"}}</a>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s12">
+					
+					{{template "allFlashMessages" .}}
+				</div>
+			</div>
+			<div class="row m-t-30">
+				<div class="col s12">
+					{{if .Reusables}}
+					<div class="row">
+						<!--div class="col-sm"-->
+						{{range $index, $item := .Reusables}}
+						<div class="col s12 m3">
+							<div class="card small">
+								<div class="card-image">
+									{{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.Reusables_reusable_image))}}
+										<img
+										class="lightbox"
+										data-large="{{$.EnvConfVars.fileServeCDNUrl}}{{$.EnvConfVars.reusablesImgCDNPath_large}}/{{index $item $.KeysForIteration.Reusables_reusable_image}}"
+										data-thumbnail="{{$.EnvConfVars.reusablesImgCDNPath_thumbnails}}/{{index $item $.KeysForIteration.Reusables_reusable_image}}"
+										data-name="{{$.EnvConfVars.fileServeCDNUrl}}{{index $item $.KeysForIteration.Reusables_reusable_image}}"
+										data-type="reusable"
+										data-id="reusable-img-{{index $item $.KeysForIteration.Reusables_reusable_image}}"
+										src="{{$.EnvConfVars.fileServeCDNUrl}}{{$.EnvConfVars.reusablesImgCDNPath_thumbnails}}/{{index $item $.KeysForIteration.Reusables_reusable_image}}">
+									{{else}}
+										<p class="center m-t-20"><i class="material-icons large grey-text text-lighten-3 center">camera_alt</i></p>
+									{{end}}
+								</div>
+								<div class="card-action">
+									<div class="content">
+										<h6>
+											{{index $item $.KeysForIteration.Reusables_name}}
+										</h6>
+										<div class="tiny-text grey-text">
+											<p>
+												{{index $item $.KeysForIteration.Reusables_description}}
+											</p>
+											<p>
+												{{TemplateFunctionTranslate "form_label_reusables_color"}}:  {{index $item $.KeysForIteration.Reusables_color}}
+											</p>
+											<p>
+												{{TemplateFunctionTranslate "form_label_reusables_code"}}:  {{index $item $.KeysForIteration.Reusables_reusable_code}}
+											</p>
+										</div>
+
+										<div class="center m-t-5" >
+											<a href="/reusables/qrcode/manage/{{index $item $.KeysForIteration.Reusables_id}}" id=""
+											class="btn-icon-round tooltipped" 
+											data-position="top" 
+											data-tooltip="{{TemplateFunctionTranslate "tooltipp_reusable_qrcode"}}"
+											
+											>
+											<i class="material-icons">qr_code</i>
+										</a>
+										<a href="/reusables/edit/{{index $item $.KeysForIteration.Reusables_id}}"
+										id="" class="btn-icon-round tooltipped" data-position="top"
+										data-tooltip="{{TemplateFunctionTranslate "tooltipp_reusable_edit"}}">
+										<i class="material-icons">mode_edit_outline</i>
+									</a>
+
+
+
+									<a 
+									data-target="modal-reusabletoatalqrcode"
+									onClick="triggerReusableGenerateQrCodes({{index $item $.KeysForIteration.Reusables_id}})"
+									class="btn-icon-round tooltipped modal-trigger" 
+								  
+									data-position="top"  
+									data-tooltip="{{TemplateFunctionTranslate "tooltipp_reusable_generated_qrcode"}}"
+									>
+										<i class="material-icons">auto_awesome</i>
+									</a>
+
+
+
+
+
+
+									<a href="/reusables/delete/{{index $item $.KeysForIteration.Reusables_id}}"
+									id="" class="btn-icon-round danger tooltipped" data-position="top"
+									data-tooltip="{{TemplateFunctionTranslate "tooltipp_reusable_delete"}}">
+									<i class="material-icons">delete_outline</i>
+								</a>
+									
+
+							</div>
+
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+			{{end}}
+		             </div>
+
+
+
+
+
+		{{else}}
+		<div class="general-info-container">
+			Noch kein Reusables angelegt.
+		</div>
+		{{end}}
+	</div>
+            </div>
+        </div>
+     </div>
+</main>
+
+
+
+
+ <!-- Modal Structure -->
+ <div id="modal-reusabletoatalqrcode"  class="modal">
+
+    <div class="modal-content" >
+		<input id="number_of_qr_codes" value="">
+    </div>
+
+    <div class="modal-footer" >
+		<a  class="btn-cancel">{{TemplateFunctionTranslate "form_caption_cancel"}}</a>
+		<a class="btn" onclick="initAjaxReusableQrCode()">
+			{{TemplateFunctionTranslate "form_caption_submit"}}
+		</a>
+    </div>
+
+	<br/>
+  </div>
+
+{{end}}

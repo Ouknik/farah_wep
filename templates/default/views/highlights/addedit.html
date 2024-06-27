@@ -1,0 +1,72 @@
+::import{"partials/top_nav","partials/allFlashMessages","partials/flashMessageSuccess","partials/flashMessageWarning","partials/flashMessageError","partials/flashMessageUncategorized"}endimport
+::setLocalCSS{"css/dropzone-common.css"}endsetLocalCSS
+{{define "content"}}
+
+{{template "top-nav" .}}
+
+<main >
+    <div class="background-g">
+    <div class="row">
+
+        <div class="col s12 m10 l8 xl6 col-horizontal-center m-b-50">
+            
+            <div class="row m-b-10">
+
+                <div class="col s12">
+                    <div class="left">
+                        <a href="/highlights/manage" class="strong">
+                            <span class="material-icons small" style="vertical-align: middle;">arrow_back_ios</span>
+                            {{TemplateFunctionTranslate "form_caption_goto_highlights"}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-t-30">
+                <div class="col s12">
+                    <h2 class="heading-main">
+                        {{if .HighlightId}}
+                            {{TemplateFunctionTranslate "page_heading_highlight_edit"}}
+                        {{else}}
+                            {{TemplateFunctionTranslate "page_heading_highlight_add"}}
+                        {{end}}
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    {{template "allFlashMessages" .}}
+                </div>
+            </div>
+                                
+            <div class="row">
+                <div class="col s12">
+                    <form enctype="multipart/form-data" action="" method="post" autocomplete="off" class="">
+                        <section class="form-elements">
+                            
+                            {{.Form.Title}}
+                            {{.Form.Date_display}}
+                            {{.Form.Date_begin}}
+                            {{.Form.Date_end}}
+                            {{.Form.Description}}
+                        </section>
+                        <div class="m-t-20">
+                            <a href="/" class="btn-cancel">{{TemplateFunctionTranslate "form_caption_cancel"}}</a>
+                            <button class="btn" type="submit">
+                                {{if .HighlightId}}
+                                    {{TemplateFunctionTranslate "form_caption_save"}}
+                                {{else}}
+                                    {{TemplateFunctionTranslate "form_caption_submit"}}
+                                {{end}}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+{{end}}

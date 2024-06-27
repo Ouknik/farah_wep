@@ -1,0 +1,84 @@
+var _instanceSweetalert = new sweetalert();
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+::setLocalJSForFooter{"js/reusableGeneratedQrCode.js"}endsetLocalJSForFooter
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+<main class="m-b-50">
+    <div class="content-wrapper-before weusable-pink"></div>
+    <div class="row">
+
+               
+  
+        <div class="col s12 l10 col-horizontal-center">
+
+            <div class="row">
+    
+                <div class="col s6">
+                  <h2 class="heading-main left-align mt-5">{{TemplateFunctionTranslate "page_heading_manage_qr_code_history"}}</h2>
+                </div>
+            </div>
+
+            <div class="row m-t-30">
+                <div class="col s12">
+               <div class="container-table-bg">
+          
+            <table >
+                <thead>
+                  <tr>
+                      <th>{{TemplateFunctionTranslate "label_order_username"}}</th>
+                      <th>{{TemplateFunctionTranslate "form_label_delivery_agen"}}</th>
+                      <th>{{TemplateFunctionTranslate "form_label_assigned_on"}}</th>
+                      <th>{{TemplateFunctionTranslate "Am zurückgekehrt"}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{if eq (len .ReusablesTraking) 0}}
+                <tr>
+                   
+                    <td colspan="4" class="center-align" > {{TemplateFunctionTranslate "from_heading_message_history_empty"}}</td>
+                   
+                    
+                </tr>
+                
+                {{else}}
+                {{range $index, $item := .ReusablesTraking}}
+                
+                <tr>
+                <td>{{index $item $.KeysForIteration.User_first_name}} {{index $item $.KeysForIteration.User_last_name}}</td>
+                <td>{{index $item $.KeysForIteration.UserDelevery_first_name}} {{index $item $.KeysForIteration.UserDelevery_last_name}}</td>
+                <td>
+                    
+                    {{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.ReusableTraking_assigned_on))}}
+
+                      {{TemplateFunctionLocalizeDateTime (index $item $.KeysForIteration.ReusableTraking_assigned_on)}}
+                    {{else}}
+                    <p>-</p>
+                    {{end}}
+                </td>
+                <td>
+                    {{if not (TemplateFunctionIsNullOrEmpty (index $item $.KeysForIteration.ReusableTraking_returned_on))}}
+                    {{TemplateFunctionLocalizeDateTime (index $item $.KeysForIteration.ReusableTraking_returned_on)}}
+                    {{else}}
+                    <p>-</p>
+                    {{end}}
+                
+                </td>
+                
+                </tr>
+
+
+                {{end}}
+                {{end}}
+                </tbody>
+            </table>
+               </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+{{end}}

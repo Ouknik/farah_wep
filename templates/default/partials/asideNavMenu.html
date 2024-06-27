@@ -1,0 +1,25 @@
+{{define "sideNavForSmallScreens"}}
+	<div id="slide-out" class="sidenav">
+		<div class="sidenav-close-container right m-10" style="">
+			<a href="javascript:void()" class="sidenav-close"><i class="material-icons">arrow_back</i></a>
+		</div>
+		<div class="clearfix"></div>
+        <ul>
+        	{{range $item := .LeftAsideMenuItems}}
+        		{{/*}}<li><a href="{{$item.Url}}" class="{{if TemplateFunctionContainsString $item.Url (printf "%s/%s" $.ControllerDetails.Controller $.ControllerDetails.Action)}}active{{end}}">{{TemplateFunctionTranslate $item.Caption}}</a></li>{{*/}}
+        		<li><a href="{{$item.Url}}" class="{{if TemplateFunctionContainsString $item.Url $.ControllerDetails.Controller}}active{{end}}">{{TemplateFunctionTranslate $item.Caption}}</a></li>
+        	{{end}}
+        </ul>
+	</div>
+{{end}}
+
+{{define "sideNavForLargeScreens"}}
+	<div class="col xl2 aside-menu-left show-on-extra-large-only">
+		<ul>
+			{{range $item := .LeftAsideMenuItems}}
+				{{/*}}<li><a href="{{$item.Url}}" class="{{if TemplateFunctionContainsString $item.Url (printf "%s/%s" $.ControllerDetails.Controller $.ControllerDetails.Action)}}active{{end}}">{{TemplateFunctionTranslate $item.Caption}}</a></li>{{*/}}
+				<li><a href="{{$item.Url}}" class="{{if TemplateFunctionContainsString $item.Url $.ControllerDetails.Controller}}active{{end}}">{{TemplateFunctionTranslate $item.Caption}}</a></li>
+			{{end}}
+		</ul>
+	</div>
+{{end}}

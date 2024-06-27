@@ -1,0 +1,11 @@
+{{define "headerJS" }}
+
+	{{ range $jsFile := .ExternalHeaderJSFileNamesToLoad }}
+    	<script src="{{$jsFile}}" crossorigin="anonymous"></script>
+	{{ end }}	
+	
+	{{ range $jsFile := .LocalHeaderJSFileNamesToLoad }}
+    	<script src="{{$.HeaderDetails.ThemePath}}/{{$jsFile}}"></script>
+	{{ end }}
+
+{{end}}

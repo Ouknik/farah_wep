@@ -1,0 +1,55 @@
+{
+	"envConfigVars": 
+		{
+			"appName": "farah_web_app",
+			
+			"portalKey" : "",
+			"fileServeCloudUrl" : "",
+			"version": "1.0",
+			"publicPath": "/public",
+			"privateStorage" : "./storage_private",
+			"templatePath": "./templates",
+			"baseURL":"http://localhost",
+			"applicationSrcName": "farah_web_app",
+			"applicationCrossDomainRAUrl": "http://localhost",
+			"languageDefault" : "de-de",
+			"languagesAvailable" : "de-de",
+			"themePath" : "/public/themes/farah",
+			"publicPath_CDN": "/public",
+			
+			"srcPath": "\\home\\ouknik\\Desktop\\my_file ssd\\farah_immobile\\farah_web_app",
+			"publicStorage" : "./public",
+			"AnnoncePicStorage_large" : "./public/annoncepic_large",
+			"AnnoncePicStorage_thumbnails" : "./public/annoncepic_thumbnails",
+			"AnnoncePicCDNPath_large" : "/public/annoncepic_large",
+			"AnnoncePicCDNPath_thumbnails" : "/public/annoncepic_thumbnails",
+
+			"restaurantImgStorage_large" : "./public/restaurant_img_large",
+			"restaurantImgStorage_thumbnails" : "./public/restaurant_img_thumbnails",
+			"restaurantImgCDNPath_large" : "/public/restaurant_img_large",
+			"restaurantImgCDNPath_thumbnails" : "/public/restaurant_img_thumbnails",
+
+			"reusablesImgStorage_large" : "./public/reusables_img_large",
+			"reusablesImgStorage_thumbnails" : "./public/reusables_img_thumbnails",
+			"reusablesImgCDNPath_large" : "/public/reusables_img_large",
+			"reusablesImgCDNPath_thumbnails" : "/public/reusables_img_thumbnails",
+
+
+			
+
+			"premiumpackageImgStorage_large" : "./public/premiumpackage_img_large",
+			"premiumpackageImgStorage_thumbnails" : "./public/premiumpackage_img_thumbnails",
+			"premiumpackageImgCDNPath_large" : "/public/premiumpackage_img_large",
+			"premiumpackageImgCDNPath_thumbnails" : "/public/premiumpackage_img_thumbnails",
+
+			"emailTemplatePath": "./templates/emails",
+			"listItemsPerPage" : "5",
+			"validSessionTimeInMins" : "20",
+			"validStaticSessionTimeInDays" : "14",
+			"profilepic_thumbnail_size"	: "200",
+			"img_thumbnail_size" : "200",
+			"smtpDetails" : "mx2fa8.netcup.net, 587, PrimePort <smtp_service@wearetechpool.com>, smtp_service@wearetechpool.com, K&6im1b4ubfvrWvdt_%tr45$iuh"
+
+
+		}
+}

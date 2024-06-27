@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lang country="us">
+
+
+	<!-- ############# ORPHAN MESSAGES ############ -->
+	<tag id="salutation_0">Mr.</tag>
+	<tag id="salutation_1">Mrs.</tag>
+	<tag id="date">02/01/2006</tag>
+	<tag id="dateTime">02/01/2006 15:04</tag>
+	<tag id="by">By</tag>
+	<!-- ########### END ORPHAN MESSAGES ########## -->
+	
+	
+	
+	
+	<!-- ########### FORM LABELS AND OPTIONS ########## -->
+	<tag id="form_label_heading">Heading</tag>
+	<tag id="form_label_title">Title</tag>
+	<tag id="form_label_first_name">First Name</tag>
+	<tag id="form_label_last_name">Last Name</tag>
+	<tag id="form_label_email">E-Mail</tag>
+	<tag id="form_label_password">Password</tag>
+	<tag id="form_label_confirmPassword">Confirm password</tag>
+	<tag id="form_label_city">City you live in</tag>
+	<tag id="form_label_uploadAvatar">Add an optional profile photo</tag>
+	<tag id="form_label_presentPassword">Present password</tag>
+	<tag id="form_label_newPassword">New password</tag>
+	<tag id="form_label_menuitem_name">Menu name</tag>
+	<tag id="form_label_menuitem_name_display">Menu name to be displayed</tag>
+	
+	<tag id="form_option_male">Male</tag>
+	<tag id="form_option_female">Female</tag>
+	<tag id="form_option_agreeTermsAndCondition">I've read Terms and Conditions and agree with them.</tag>
+	<tag id="form_option_rememberMe">Remember me</tag>
+	
+	
+	
+	
+	<!-- ########### FORM CAPTIONS ########### -->
+	<tag id="form_caption_register">Register</tag>
+	<tag id="form_caption_signIn">Sign in</tag>
+	<tag id="form_caption_getNewPassword">Get new password</tag>
+	<tag id="form_caption_cancel">Cancel</tag>
+	<tag id="form_caption_submit">Send</tag>
+	<tag id="form_caption_delete">Delete</tag>
+	<tag id="form_caption_change">Change</tag>
+	<tag id="form_caption_add">Add</tag>
+	<tag id="form_caption_save">Save</tag>
+	<tag id="form_caption_savePreview">Preview</tag>
+	
+	
+	
+	
+	<!-- ########## FORM PLACEHOLDERS ########## -->
+	<tag id="form_placeholder_city">San-Fransisco</tag>
+	
+	
+	<!-- ########## FROM HINTS ########## -->
+	<tag id="form_hint_registerEmail">Your E-Mail will be your login ID</tag>
+	<tag id="form_hint_registerPassword">Choose strong password for enhanced security</tag>
+	<tag id="form_hint_acceptTermsAndCondition">By clicking Sign Up, you agree to our <![CDATA[<a href="http://www.google.de">Terms and Conditions.</a>]]></tag>
+	<tag id="form_hint_fileUploadAllowedFormats_avatar">Allowed formats: jpg, png</tag>
+	<tag id="form_hint_optionalField">* Optional</tag>
+	<tag id="form_hint_presentPassword">Enter your present password</tag>
+
+	
+	
+	
+	<!-- ########### FORM ERRORS ########## -->
+	<tag id="form_error_isMandatory">This is a mandatory field</tag>
+	<tag id="form_error_isMandatory_first_name">Enter your First Name</tag>
+	<tag id="form_error_isMandatory_last_name">Enter your Last Name</tag>
+	<tag id="form_error_exceedsMax">Exceeds limit</tag>
+	<tag id="form_error_underMin">Under minimum</tag>
+	<tag id="form_error_isNotInt">We need an Int</tag>
+	<tag id="form_error_isNotFloat">We need an Float</tag>
+	<tag id="form_error_isNotEmail">We need your email address</tag>
+	<tag id="form_error_isNotString">We need a string</tag>
+	<tag id="form_error_filesizeNotReadable">File size not readable</tag>
+	<tag id="form_error_exceedsMaxFileSize">Exceeds max upload size (%.2f MB > %.2f MB)</tag>
+	<tag id="form_error_invalidFileExtension">Invalid File Extension</tag>
+	<tag id="form_error_wrongPostValue">Wrong Post Value</tag>
+	<tag id="form_error_passwordNotIdentical">Password not identical</tag>
+	<tag id="form_error_userAlredyExists">Invalid user. Please try to login.</tag>
+	<tag id="form_error_emailNotConfirmed">You've not confirmed your email address yet.</tag>
+	<tag id="form_error_passwordNotMatch">Either your email or password is wrong.</tag>
+	<tag id="form_error_lostPasswordUserNotFound"><![CDATA[<h4 class='warning'>Your new password was generated</h4><p class='small'>However, the mail was not delivered. Please make sure your email address is spellt correct.</p>]]></tag>
+	
+	
+	<!-- ########### EMAIL SUBJECTS ######### -->
+	<tag id="email_subject_registration">Welcome To ##APPNAME##</tag>
+	<tag id="email_subject_lostPassword">Your ##APPNAME## ID password has been reset</tag>
+	<tag id="email_subject_profileSettingsUpdated">Your ##APPNAME## Settings were updated</tag>
+	
+	
+	
+	<!-- ########### ERRORS ######### -->
+	<tag id="error_generalError">Oops! Something went wrong.</tag>
+	<tag id="error_invalidSession"><![CDATA[<h4 class='red'>Your session has expired!</h4><p class='small'>You either are not signed in or your session ended due to inactivity. Try signing in again.</p>]]></tag>
+	<tag id="error_invalidSession_custom"><![CDATA[<h4 class='red'>%s, your session has expired!</h4><p class='small'>You either are not signed in or your session ended due to inactivity. Try signing in again.</p>]]></tag>
+	<tag id="error_confirmationCodeNotFound">Looks like the page you try to access is either out dated or it does not exist.</tag>
+	<tag id="error_confirmationCodeConfirmedAlready">You have already confirmed your email address. <![CDATA[<a href="">Sign in</a>]]></tag>
+	<tag id="error_confirmEmailToContinue"><![CDATA[<h4 class='red'>Please confirm your email address to continue.</h4> <p class='small'>If you do not receive our email confirmation right after registration, please look into your SPAM mailbox or <a href="">contact us</a></div>]]></tag>
+	
+	
+	
+	<!-- ########### SUCCESS ########### -->
+	<tag id="success_thankyouWithFirstName">Thank you, %s!</tag>
+	<tag id="success_registrationComplete">You have completed your registration, welcome to My-Report.de</tag>
+	<tag id="success_lostPasswordChangedAndMailSent"><![CDATA[<h4 class='success'>Thank you, %s!</h4><p class='small'>We have sent you a mail with a auto generated password.</p>]]></tag>
+	<tag id="success_logout_successful"><![CDATA[<h4 class='success'>Good bye %s!</h4><p class='small'>You have successfully logged out.</p>]]></tag>
+	<tag id="success_passwordChanged_successful">Password was changed successfully.</tag>
+	<tag id="success_avatarUploaded_successful">Profile picture updated.</tag>
+	
+	
+	
+	
+	<!-- ########### GENERAL MESSAGS ########### -->
+	<tag id="message_contactUs">Having trouble? <![CDATA[<a href="">Contact us</a>]]></tag>
+	<tag id="message_dontHaveAccount">Don't have account?</tag>
+	<tag id="message_signUp">Sign Up Here</tag>
+	<tag id="message_alreadyHaveAccount">Already have account?</tag>
+	<tag id="message_signIn">Sign in</tag>
+	<tag id="message_logout_securityadvice"><![CDATA[<h4 class='warning'>Security advice</h4><p class='small'>For security reasons, it is recommended to close the browser completely (ie all browser windows or browser tabs) and, if necessary, reopen it for visiting other websites. This note applies in particular if you used an unknown computer at a public or for other people accessible terminal - for example, in an Internet cafe, in a hotel or at work.</p>]]></tag>
+	<tag id="message_hello">Hello</tag>
+	<tag id="message_listEmpty"><![CDATA[<h4 class=''>Nothing to show</h4><p class=''>If you were searching then try again with fewer search criteria.</p>]]></tag>
+	<tag id="message_activeLast">Last active</tag>
+	<tag id="message_activeNever">never</tag>
+	<tag id="message_deleteImage">Unlink image</tag>
+	<tag id="message_welcome_back">Welcome back</tag>
+	<tag id="message_crdate">Date</tag>
+	
+	
+	<!-- ########### MODALS ########## -->
+	<tag id="modal_title_uploadAvatar">Add an optional profile photo</tag>
+	
+	
+	
+	<!-- ########## MENU ITEMS ########## -->
+	<tag id="menu_edit">Edit</tag>
+	<tag id="menu_block_0">Mark as blocked</tag>
+	<tag id="menu_block_1">Unblock</tag>
+	<tag id="menu_delete">Delete</tag>
+	<tag id="menu_delete_undo">Undo Delete</tag>
+	<tag id="menu_trashed">Bin</tag>
+	<tag id="menu_modules_user_list">User</tag>
+	
+	
+	<!-- ########## TITLES ########## -->
+	<tag id="title_userManagement">Manage users</tag>
+	
+	
+	
+	<!-- ########## TABLE HEADINGS ########## -->
+	<tag id="table_heading_name">Name</tag>
+	<tag id="table_heading_city">City</tag>
+	<tag id="table_heading_email">Email</tag>
+	<tag id="table_heading_registeredOn">Registered on</tag>
+	<tag id="table_heading_createdFrom">Created From</tag>
+	<tag id="table_heading_description">Description</tag>
+	<tag id="table_heading_title">Title</tag>
+	<tag id="table_heading_dateCreatedOn">Created on</tag>
+	
+	
+	
+	
+	
+	
+</lang>

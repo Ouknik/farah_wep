@@ -1,0 +1,29 @@
+::import{"partials/logo_header", "partials/top_nav_user_menu"}endimport
+
+{{define "top-nav"}}
+	<header class="top-nav-header">
+    <div class="row">
+    	<div class="col s12 l1">
+    		{{template "logo-header" .}}
+    	</div>
+    	<div class="col s12 l11">
+    		<div class="top-nav-left">
+    			<ul class="right hide-on-med-and-down">
+					<li><a href="/">Bestellungen</a></li>
+    				<li><a href="/restaurant/manage">Mein Restaurant</a></li>
+					<li><a href="/reusables/manage">le</a></li>
+					<li><a href="/user/delevery/manage">Delivery agine</a></li>
+    				<li><a href="/highlights/manage">Highlights</a></li>
+    				<li><a href="/menuitem/manage">Produkte verwalten</a></li>
+    			</ul>
+    		</div>
+    		<div class="top-nav">
+				{{template "top-nav-user-menu" .}}
+			</div>
+			<div class="clearfix"></div>
+    	</div>
+		<div class="clearfix"></div>
+		<div class="top-nav-border-color"></div>
+    </div>
+	</header>
+{{end}}

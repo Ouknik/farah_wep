@@ -1,0 +1,82 @@
+var _instanceSweetalert = new sweetalert();
+::import{"partials/top_nav", "partials/slidenav_trigger_bar", "partials/allFlashMessages", "partials/flashMessageSuccess", "partials/flashMessageWarning", "partials/flashMessageError", "partials/flashMessageUncategorized", "partials/asideNavMenu"}endimport
+::setLocalJSForFooter{"js/orderdetails.js"}endsetLocalJSForFooter
+
+
+{{define "content"}}
+
+
+{{template "top-nav" .}}
+
+
+<main class="m-b-50">
+    <div class="row">
+        <div class="col s12 l10 col-horizontal-center">
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="heading-main">{{TemplateFunctionTranslate "page_heading_manage_sales_overview"}}</h2>
+                </div>
+            </div>
+
+                     
+            
+            <div class="row m-t-5">
+                <div class="col s12 right-align">
+<!-- Add a button to show the calendar -->
+<button id="show-calendar">Select Date</button>
+
+<!-- Add a div to hold the calendar -->
+<div id="calendar" style="display:none;"></div>
+
+                 
+                </div>
+            </div>
+
+            <div class="row m-t-30">
+
+                <div class="col s12">
+
+                    
+                    
+                    <!-- Display the orders table -->
+              <table id="ordersTable">
+                <thead>
+                  <tr>
+                    <th>User Mobile number</th>
+                    <th>Time of order</th>
+                    <th>Order Payment Status</th>
+                    <th>Total amount</th>
+                    <th>Order status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {{range $index, $item := .Order}}
+                  <tr>
+                    <td>{{index $item $.KeysForIteration.Order_mobile_phone}}</td>
+                    <td>{{index $item $.KeysForIteration.Order_crdate}}</td>
+                    <td>{{index $item $.KeysForIteration.OrderP_status}}</td>
+                    <td>{{index $item $.KeysForIteration.Order_amount}}$</td>
+                    <td>
+                      <select class="form-control" onchange="chqngeStatus(this, {{index $item $.KeysForIteration.Order_id}})">
+                        <option value="1" {{if eq (index $item $.KeysForIteration.Order_status) "1"}} selected {{end}}>Progress</option>
+                        <option value="0" {{if eq (index $item $.KeysForIteration.Order_status) "0"}} selected {{end}}>Delete</option>
+                        <option value="2" {{if ne (index $item $.KeysForIteration.Order_status) "1"}} {{if ne (index $item $.KeysForIteration.Order_status) "0"}} selected {{end}} {{end}}>Delivered</option>
+                      </select>
+                    </td>
+                    <td>
+                      <a href="/restaurant/salesoverview/order/{{index $item $.KeysForIteration.Order_id}}">Details</a>
+                    </td>
+                  </tr>
+                  {{end}}
+                </tbody>
+              </table>
+               </div>
+            </div>
+		</div>
+    </div>
+</main>
+{{end}}
+
+

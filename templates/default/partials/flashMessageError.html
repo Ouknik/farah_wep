@@ -1,0 +1,9 @@
+{{define "flashMessageError"}}
+
+	{{if .FlashMessages.Error}}
+	<div class="red lighten-3 white-text text-darken-3 p-10 m-10 border">
+		{{TemplateFunctionTranslate .FlashMessages.Error}}
+	</div>
+	{{end}}
+
+{{end}}

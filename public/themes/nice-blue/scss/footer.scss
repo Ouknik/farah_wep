@@ -1,0 +1,51 @@
+
+.global-footer {
+	padding-top: 50px;
+	color: color('theme-text-colors', 'dark');
+	font-size: 75%;
+	border-top: 1px solid  color('theme-grey', 'light');
+}
+
+.global-footer__background {
+	background-color: color('theme-grey', 'background');
+}
+
+.global-footer a {
+	@extend .grey-text;
+	@extend .text-darken-4;
+}
+
+.global-footer-title {
+	font-family: $font-primary;
+	font-size: 110%;
+	font-weight: 800;
+	letter-spacing: 0;
+	margin:0;
+	padding:0;
+}
+
+
+.footer-country-list-container {
+	@extend .dropdown-content;
+	background-color: color('theme-grey', 'background');
+	padding: 10px !important;
+	margin:0 !important;
+	border-radius: $radius-default;
+	min-width: 200px;
+}
+
+.footer-country-list-container a{
+	color: red !important;
+}
+
+.footer-choose-country-trigger-container {
+	margin-top: 5px;
+	border-radius: $radius-default;
+	border: 1px solid color('theme-input-colors', 'border');
+	display: inline-block;
+	padding: 5px;
+}
+
+.footer-copyright {
+	font-size: 120%;
+}

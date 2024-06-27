@@ -1,0 +1,78 @@
+::import{"partials/top_nav"}endimport
+::setLocalJSForFooter{"js/show-hide-password.js"}endsetLocalJSForFooter
+
+{{define "content"}}
+
+<main>
+	<div class="row m-t-100 m-b-100" id="">
+		<div class="col s12 m8 l4 col-horizontal-center">
+			<div class="form-register">
+
+
+            	<div class="row">
+            		<div class="col s12 center">
+                        {{template "logo-header" .}}
+                    </div>
+                </div>                
+
+	        	<div class="row">
+	        		<div class="col s12">
+						<h2 class="heading-main m-0 center">{{TemplateFunctionTranslate "welcome"}}</h2>
+						<p class="m-t-0 heading-main-slogan">PrimePort Verwaltungsbereich</p>
+					</div>
+				</div>
+	            
+	            <form enctype="multipart/form-data" action="" method="post" autocomplete="off" class="">
+	            	<div class="row">
+	            		<div class="col s12 l6">
+	            			<div class="input-field ">
+	        					<input class="disabled" id="reg-firstname" type="text" name="" value="{{.InviteeFirstName}}" disabled="">
+	        					<label for="" class="">Vorname</label>
+	        					<span class="helper-text">Diese Angaben können später überarbeitet werden.</span>
+	            			</div>
+	            		</div>
+	            		<div class="col s12 l6">
+	            			<div class="input-field ">
+	        					<input class="disabled" id="reg-lastname" type="text" name="" value="{{.InviteeLastName}}" disabled="">
+	        					<label for="" class="">Nachname</label>
+	        					<span class="helper-text">Diese Angaben können später überarbeitet werden.</span>
+	            			</div>
+	            		</div>
+	            	</div>
+	            	
+	            	<div class="row">
+	            		<div class="col s12">
+	            			{{.Form.Email}}
+	            		</div>
+	            	</div>
+	            	
+	            	<div class="row">
+	            		<div class="col s12">
+	            			{{.Form.Password}}
+	            		</div>
+	            		<div class="col s12">
+	            			{{.Form.PasswordRepeat}}
+	            		</div>
+	            	</div>
+
+	            	{{.Form.AgreeTermsAndCondition}}
+	            	
+	            	<div class="row m-t-30">
+	            		<div class="col s12 center">
+	                		<button class="btn-register" type="submit">{{TemplateFunctionTranslate "form_caption_register"}}</button>
+	            		</div>
+	                </div>
+
+	            </form>
+	            <div class="small m-t-10 center">
+	                <p>
+	                    {{TemplateFunctionTranslate "message_alreadyHaveAccount"}}
+	                    <a href="/user/login">{{TemplateFunctionTranslate "message_signIn"}}</a>
+	                </p>
+	            </div>
+			</div>
+	        
+		</div>
+	</div>
+</main>
+{{end}}

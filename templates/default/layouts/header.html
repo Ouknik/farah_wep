@@ -1,0 +1,40 @@
+{{define "header"}}
+
+        <title>PrimePort Verwaltungsberiech {{.HeaderDetails.PageTitle}}</title>
+
+	    <!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp" rel="stylesheet" />
+	    <!--Import materialize.css
+	    	<link type="text/css" rel="stylesheet" href="{{.HeaderDetails.PublicPath}}/materialize/css/materialize.min.css"  media="screen,projection"/>
+		-->
+	    <!--Let browser know website is optimized for mobile-->
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+
+        <!-- load handlemissingimages -->
+        <script src="{{.HeaderDetails.ThemePath}}/js/handleMissingImages.js"></script>
+
+	    <link rel="apple-touch-icon" sizes="180x180" href="{{.HeaderDetails.ThemePath}}/imgs/fav/apple-touch-icon.png">
+	    <link rel="icon" type="image/png" sizes="32x32" href="{{.HeaderDetails.ThemePath}}/imgs/fav/favicon-32x32.png">
+	    <link rel="icon" type="image/png" sizes="16x16" href="{{.HeaderDetails.ThemePath}}/imgs/fav/favicon-16x16.png">
+	    <link rel="manifest" href="/site.webmanifest">
+
+    	<!-- Load Sweet Alert -->
+    	<script src="{{.HeaderDetails.ThemePath}}/js/sweetalert.lib.min.js"></script>
+        <!-- load sweet alert custom class -->
+        <script src="{{.HeaderDetails.ThemePath}}/js/sweetalert-custom.js"></script>
+
+
+
+	    <!--
+	    		Custom CSS
+	    	this must be loaded last of all CSS
+	    	but just before header css from action
+	    -->
+	    <link type="text/css" rel="stylesheet" href="{{.HeaderDetails.ThemePath}}/css/custom.css"  media="screen,projection"/>
+
+		{{template "headerCSS" .}}
+		{{template "headerJS" .}}
+
+{{end}}
